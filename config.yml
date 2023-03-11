@@ -1,4 +1,4 @@
-baseURL: 'http://example.org/'
+baseURL: 'https://clever-klepon-d14cb6.netlify.app/'
 languageCode: zh-CN
 title: Yeelight の 小屋
 theme: "PaperMod"
@@ -44,7 +44,7 @@ params:
     author: "Yeelight"
     keywords: [blog, page]
     defaultTheme: auto # dark, light
-    
+
     homeInfoParams:
         Title: 简单是稳定的前提( •̀ ω •́ )✧
         Content: 私たちの未来はみんなでつくる
