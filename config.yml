@@ -1,0 +1,119 @@
+baseURL: 'http://example.org/'
+languageCode: zh-CN
+title: Yeelight の 小屋
+theme: "PaperMod"
+
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+
+minify:
+  disableXML: true
+  minifyOutput: true
+
+menu:
+  main:
+    - identifier: about
+      name: About👋
+      url: /about/
+      weight: 10
+    # - identifier: blog
+    #   name: Blog📜
+    #   url: /blog/
+    #   weight: 20
+    - identifier: tags
+      name: Tags🔖
+      url: /tags/
+      weight: 30
+    - identifier: categories
+      name: Categories📂
+      url: /categories/
+      weight: 40
+    - identifier: archives
+      name: Archives📦
+      url: /archives/
+      weight: 50
+    - identifier: search
+      name: Search🔍
+      url: /search/
+      weight: 60
+
+# Main interface settings
+params:
+    author: "Yeelight"
+    keywords: [blog, page]
+    defaultTheme: auto # dark, light
+    
+    homeInfoParams:
+        Title: 简单是稳定的前提( •̀ ω •́ )✧
+        Content: 私たちの未来はみんなでつくる
+
+    socialIcons: # optional
+        - name: "GitHub"
+          url: "https://github.com/FeiNiaoBF"
+        - name: "YouTube"
+          url: "https://www.youtube.com/channel/UCZsE4g_WIh-KRpjCeF4cABA"
+        - name: "bilibili"
+          url: "https://space.bilibili.com/592367582?spm_id_from=333.1007.0.0"
+        - name: "steam"
+          url: "https://store.steampowered.com/"
+
+    env: production
+    # shared
+    #ShowShareButtons: true
+    # read time settings
+    ShowReadingTime: true
+    # breadCrumbs: true
+    ShowBreadCrumbs: true
+    # next page settings
+    ShowPostNavLinks: true
+    # copy
+    ShowCodeCopyButtons: true
+    # comment
+    comments: false
+
+    cover:
+      linkFullImages: true
+
+# Search settings
+    outputs:
+      home:
+        - HTML
+        - RSS
+        - JSON # is necessary
+
+    fuseOpts:
+      isCaseSensitive: false
+      shouldSort: true
+      location: 0
+      distance: 1000
+      threshold: 0.4
+      minMatchCharLength: 0
+      keys: ["title", "permalink", "summary", "content"]
+
+    assets:
+      disableFingerprinting: true
+      disableHLJS: false
+    # editPost:
+    #   URL: "https://github.com/FeiNiaoBF/FeiNiaoBF.github.io"
+    #   Text: "Suggest Changes" # edit text
+    #   appendFilePath: false # to append file path to Edit link
+
+markup:
+  highlight:
+    noClasses: true
+    anchorLineNos: false
+    codeFences: true
+    guessSyntax: true
+    #lineNos: true
+    style: catppuccin-latte # catppuccin-mocha # catppuccin-latte # catppuccin-frappe # dracula
+
+  tableOfContents:
+    endLevel: 3
+    ordered: true
+    startLevel: 2
+
+ShowToc: true
+
+TocOpen: true

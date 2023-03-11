@@ -1,0 +1,26 @@
+{{- define "main" }}
+<header>
+    <h1>{{ .Title }}&nbsp;
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+    </h1>
+    <h4>Hi,这是我的博客</h4>
+    {{- if .Description }}
+    <div class="post-description">{{ .Description }}</div>
+    {{- end }}
+    {{- if not (.Param "hideMeta") }}
+    <div class="post-meta">{{ partial "translation_list.html" . }}</div>
+    {{- end }}
+</header>
+
+<section id="searchbox">
+    <input id="searchInput" autofocus placeholder="{{ .Params.placeholder | default (printf " %s ↵" .Title) }}"
+        aria-label="search" type="search" autocomplete="off">
+    <ul id="searchResults" aria-label="search results"></ul>
+</section>
+
+<p>欢迎来到我的博客！在这里，我会分享我的见解和经验。</p>
+{{- end }}{{/* end main */}}
