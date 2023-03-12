@@ -2,10 +2,10 @@
 title: "零.计算机网络导读"
 description: "初学计算机网络"
 date: 2023-03-08T21:08:30+08:00
-draft: true
+draft: false
 tags: ["Internet", "ComputerScience"]
 categories: ["Internet"]
-# author: ["Me"]
+author: ["Me"]
 ---
 
 ## 前言
@@ -25,3 +25,5 @@ categories: ["Internet"]
 在我学习计算机网络的过程，《自顶向下》是一本十分优秀的教材，它通过逐层递进的方式，深入浅出地讲解了计算机网络的基本概念和原理，帮助读者快速入门，并逐渐提高自己的网络知识水平。通过学习这本书，可以让我们更好地了解网络的繁星点点，理解计算机网络的运作方式和工作原理，从而更好地掌握网络知识，提高我们的网络应用能力。
 
 ## 外部链接
+
+[中科大郑烇、杨坚全套《计算机网络（自顶向下方法 第7版》](https://www.bilibili.com/video/BV1JV411t7ow/?p=1)

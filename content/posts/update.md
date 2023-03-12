@@ -5,6 +5,8 @@ date: 2023-03-08T19:56:58+08:00
 draft: false
 weight: 1
 showtoc: true
+tags: [Blog]
+categories: ["Blog"]
 ---
 
 ## Hello
