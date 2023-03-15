@@ -5,6 +5,7 @@ draft: true
 tags: [CSAPP]
 categories: ["CSAPP"]
 author: ["Me"]
+showtoc: true
 ---
 
 ## 前言
@@ -56,9 +57,28 @@ author: ["Me"]
 
 ### 编译系统
 
+```c
+    int main()
+    {
+        printf("Hello World\n");
+        return 0;
+    }
+```
+
+上面是一个简单的C语言程序，打印一个"Hello World"(并且换行)，但是，它要经过好几个步骤才能打印在你的屏幕上，分别是：编译(Compiler)，汇编(Assembler)，装载器(Loader)，链接器(Linker)。
+
+我们在这一部分将要学到从 `高级语言 --> 汇编语言 --> 机器语言` 这一过程的具体实现，这使我们能够更深入地了解系统的底层。。
+
 ### CPU基本结构
 
+CPU（中央处理器），可以说是本世纪最伟大的发明了，一个小小的芯片装载着人类的智慧，这一部分我们要了解CPU的内部构造，下面是一张CPU的大致图片：
+![图像CPU](./../../static/img/CPU.png)
+
+这是一个复杂但十分有趣的部分，相信我，你会体会它的魅力的。
+
 ### 操作系统
+
+
 
 ### 网络通信
 

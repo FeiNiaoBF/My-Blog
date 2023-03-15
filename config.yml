@@ -103,11 +103,11 @@ params:
 markup:
   highlight:
     noClasses: true
-    anchorLineNos: false
-    codeFences: true
+    anchorLineNos: true
+    codeFences: false
     guessSyntax: true
     #lineNos: true
-    style: catppuccin-latte # catppuccin-mocha # catppuccin-latte # catppuccin-frappe # dracula
+    style: catppuccin-frappe # catppuccin-mocha # catppuccin-latte # catppuccin-frappe # dracula
 
   tableOfContents:
     endLevel: 3
