@@ -2,9 +2,11 @@
 title: "奇妙的位运算"
 description: 位运算笔记
 date: 2022-11-10T21:04:43+08:00
-draft: true
+draft: false
 tags: [bit]
 categories: ["logic"]
+author: ["Yeelight"]
+showtoc: true
 ---
 
 ## 前言
