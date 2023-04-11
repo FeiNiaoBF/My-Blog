@@ -1,5 +1,5 @@
 ---
-title: "一.数的表示(CSAPP)"
+title: "二.程序的机器级表示(CSAPP)"
 date: 2023-03-19T20:13:06+08:00
 draft: true
 tags: [CSAPP]
