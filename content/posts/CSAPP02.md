@@ -186,7 +186,11 @@ RISC(*Reduced instruction set computer*)
 ## 外部链接
 
 [摩尔定律---Wiki](https://zh.wikipedia.org/wiki/%E6%91%A9%E5%B0%94%E5%AE%9A%E5%BE%8B)
+
 [微处理器---Wiki](https://zh.wikipedia.org/wiki/%E5%BE%AE%E5%A4%84%E7%90%86%E5%99%A8)
+
 [*The 50 Year History of the Microprocessor*](https://zhuanlan.zhihu.com/p/511271401)
+
 [芯片相关-- Cpu历史--AMD系列](https://zhuanlan.zhihu.com/p/464721330)
+
 [芯片相关-- Cpu历史--intel系列](https://zhuanlan.zhihu.com/p/464413953)
