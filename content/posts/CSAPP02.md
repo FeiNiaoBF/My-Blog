@@ -8,7 +8,7 @@ author: ["Yeelight"]
 showtoc: true
 ---
 
-# 历史发展和基本概念
+# 入门
 
 ## 微处理器历史
 
@@ -59,7 +59,7 @@ Intel也逐步发布了`Intel 8008`一个8位的，`Intel 8086` 一个16位的�
 
 ![CALL](/img/CALL-CS61c.png)
 
-上面是cs61c中的*从C到机器语言*的完整过程，十分的详细了。程序的运行就是想像是一个**翻译**过程，用上一些我们明文规定的语法规则，使用编译器（GCC等）来当我们程序员和机器的**翻译官**。
+上面是cs61c中的*从C到机器语言*的完整过程，十分的详细了。程序的运行就是想像是一个**翻译**过程，用上一些我们明文规定的语法规则，使用编译器（GCC等）来当我们程序员和机器之间的**翻译官**。
 
 现在来看一看从 `C语言` 到`机器代码`(一个整型加法计算的汇编代码)
 
@@ -77,16 +77,13 @@ int main(int argc, char const *argv[])
 }
 ```
 
-经过gcc的编译（对于指令不熟的同学只要记住一些常用的就好了）
-
-我在我的Linux机器上使用以下的代码
+经过gcc的编译，在自己的Linux机器上使用以下的代码
 
 ```shell
 $ gcc -Og -S clcyle_one.c
 ```
 
 ```asm
-
     .file   "clcyle_one.c"
     .text
     .globl  main
@@ -106,7 +103,7 @@ main:
     #（不用在意类似 .file 的指令，它们是伪指令， 要从main看起）
 ```
 
-两者相互比较一下我们可以发现，C 语言代码被处理成统一格式的汇编代码，在汇编代码中，第一个字符串叫做操作符，后面的是源和目的`寄存器`（这是一个大玩意😣）。操作和操作数明确，在下面我们会到不同的操作符分类分析（我想把RISC-V的加入作比较），记住一个条件，`读取`/`运算操作`是一个**线性逐句逐次**的操作，PC指令是有现态和次态的。
+两者相互比较一下我们可以发现，C 语言代码被处理成统一格式的汇编代码，在汇编代码中，第一个字符串叫做操作符，后面的是源和目的`寄存器`（这是一个大玩意😣）。操作和操作数明确，在下面我们会到不同的操作符分类分析（我想把RISC-V的加入作比较），记住一个条件，`读取`/`运算操作`是一个**线性逐句逐次**的操作，PC指令是有现态和次态之分。
 
 ## 处理器的工作
 
@@ -116,7 +113,7 @@ main:
 
 ![cs61c cpu](/img/Components%20of%20a%20Computer.png)
 
-上面的图片(分别来自CS61c和CSapp)十分清楚的展示了处理器对于存放在主存里面的指令有着什么样的操作，主要的就两点**存、读取值**和**计算**。在x86-64里面还有一个叫作**条件码**的flag，我会在下面说到因为我也第一次看见这个。
+上面的图片(分别来自CSapp和CS61c)十分清楚的展示了处理器对于存放在主存里面的指令有着什么样的操作，主要的就两点**存、读取值**和**计算**。在x86-64里面还有一个叫作**条件码**的东东，我会在下面说到因为我也第一次看见这个。
 
 这是一个**CPU到Memory**的一个过程，具体的是一个处理器从内存某个地址取值（有数据和指令）拿到**CPU**里的**寄存器**通过**ALU**计算，再根据**PC**选择下一步。
 
@@ -126,9 +123,10 @@ main:
 
 ## 什么是ISA
 
-Instruction Set Architecture 指令集是包含了针对某个特定处理器执行的基本操作码（opcode），里面是基本命令，在我们学习的x86-64、RISC-V都有不同的ISA。
+**Instruction Set Architecture** (指令集框架) 是包含了针对某个特定处理器执行的基本操作码（*opcode*），里面是基本命令，在我们学习的`x86-64`、`RISC-V`都有不同的ISA。
 
-为了学习方便，我们要把ISA根据使用的方法不同进行不同的分类。
+为了学习方便，我们一般要把ISA根据使用的方法不同进行不同的分类。
+
 - 资料处理与访问操作
 - 算术逻辑操作
 - 控制过程操作
@@ -180,6 +178,168 @@ RISC(*Reduced instruction set computer*)
 
 而一个新单位**word**是相等于2个字节的大小。
 
+## 操作数指示符
+
+### 操作数基本
+
+以下的都是在操作数里面主要数值表达的意思：
+
+- **Imm**   refers to a constant value, e.g. 0x8048d8e or 48
+- **r**     refers to a register.  e.g. %rax or %edi
+- **R[r]**  refers to the value stored in register address r.
+- **M[i]**  refers to the value stored at memory address i .
+
+不同的格式表示不同的类型。
+
+### 寻址
+
+> 很重要！！！
+
+对于寻址来说，比较通用的格式是：` Imm(Rb, Ri, S) -> M[R[Rb] + S*R[Ri]+ Imm] `，其中：
+
+- **Imm** - 常数偏移量
+- **Rb** - 基寄存器
+- **Ri** - 索引寄存器，不能是 %rsp
+- **S** - 系数
+
+![OperandSpecifiers](/img/OperandSpecifiers.png)
+
+## 指令
+
+接下来我们就来看看不同分类的指令格式，我按书上的顺序来说的，它也是按我们在平时使用的频率顺序来教的。
+
+大多数的指令都是使用上文提过的 **suffix** 来显示操作数的大小的。
+
+### 数据移动指令
+
+对于 **mov** 指令来说，需要**源操作数**和**目标操作数**。指令的具体格式可以这样写 `mov? Src, Dest`，第一个是源操作数，第二个是目标操作数
+
+```txt
+mov[b|w|l|q] Src, Dest                             # 将src移动到dest
+movs[bw|bl|bq|wl|wq|lq] Src, Dest                  # 带符号扩展的移动
+movz[bw|bl|bq|wl|wq] Src, Dest                     # 带零扩展的移动
+movabsq imm, r                                     # 移动绝对四字（imm为64位）
+
+cltq Src, Dest                                     # 把%eax 符号扩展到%rax
+```
+
+在使用 **mov** 指令的时候需要值得注意的是我们的源值和目的值的选址是有标准的, 源操作数可以是立即数、寄存器值或内存值的任意一种，但目标操作数只能是寄存器值或内存值
+
+|Src| Dest |
+| :--: | :--: |
+| imm | Rag |
+| imm | Mem |
+|Reg| Reg |
+|Reg|Mem|
+|Mem|Reg|
+
+> 只有这五种的选择 ， 如果要把Mem -> Mem 的值移动，需要两步 Mem -> Reg -> Mem
+
+
+### 程序栈指令
+
+这一部分就只有两个主要的指令，但是无比的重要。可以把数据压入程序栈中，以及在栈中弹出，程序栈在过程调用中起至关重要的作用。
+
+```
+pushq  Src                    # 将4word的数据压入栈，并把%rsp - 8 -> %rsp
+
+popq  Dest                    # 将4word的数据弹入栈，并把%rsp + 8 -> %rsp
+```
+
+对于程序栈指令十分重要的一点是我们对内存的变化要注意。在程序员的眼里内存是一个有限的数组，我们在把寄存器里面的数据 `push` 进内存的时候栈指针（%rsp）要向着地址减小的方向移动，这就是 `%rsp - 8` 的原因。
+
+图片
+
+### 算术与逻辑指令
+
+对于算术指令我们想起CPU中最重要的部件 `ALU` 算术逻辑单元，基本上所有的这些指令通过
+ `opcode` 来在多路选择上 `指挥` ALU正确的使用算术。
+ > 注：下面的所有指令都可以根据数据类型加 suffix (b/w/l/q)
+
+#### Unary Operation(一元操作)
+
+```
+inc Deat         Deat+1->Deat           # 按1递增
+dec Deat         Deat-1->Deat           # 按1递减
+neg Deat         -Deat->Deat    (取反)  # 算术取反
+not Deat         ~Deat-1->Deat （取补） # 按位取反
+```
+
+一元操作只有一个操作数，即做源也是目的。可以是`Reg or Mem` 。
+
+#### Binary Operation(二元操作)
+
+```txt
+leaq S，D      &S -> D        # 将源地址的有效地址加载到目标中
+add S，D      D + S -> D      # 将源加到目标中
+sub S，D      D - S -> D      # 将源从目标中减去
+imul S，D     D * S -> D      # 目标乘以源
+xor S，D      D ^ S -> D      # 按位异或目标和来源
+or S，D       D | S -> D      # 按位或目标和来源
+and S, D      D & S -> D      # 按位与目标和来源
+
+```
+
+对于第二个到最后一个不需要再说了，都是字面意思。主要来说一说 `leaq` 这个指令。
+
+Load effective address(加载有效地址) , leaq 有两个作用：
+> - 将其源操作数的有效地址（而不是该地址处的数据）加载到其目标寄存器中
+>  在 C语言里面就是 `&S` , 这样的好处是可以给下面的内存产生指针。
+> - 也可用于执行与寻址无关的算术运算。（eg： `leaq (%rdi, %rsi, 4), %rax` 相同与 `x + 4*y ` )
+
+#### Shift Operations(移位操作)
+
+```txt
+sal[b|w|l|q] imm,d   d = d << imm   # 左移imm位
+sar[b|w|l|q] imm,d   d = d >> imm   # 算术右移imm位
+shr[b|w|l|q] imm,d   d = d >> imm   # 逻辑右移imm位
+```
+
+#### Special Arithmetic Operations(特殊算术操作)
+
+```
+imulq S                  # 有符号全乘法   四字到八字
+mulq S                   # 无符号全乘法   四字到八字
+idivq S                  # 有符号全除法   八字到四字
+divq S                   # 无符号全除法   八字到四字
+cltd                     # sign extend %eax into %edx::%eax
+cqto                     # sign extend %rax into %rdx::%rax
+```
+
+在特殊算术里面，这样的设计是为了补码的乘除有扩展。由两个64位的到全128位的乘积和整数除法的截断。
+
+除法需要特殊的安排：`idiv（有符号）` 和 `div（无符号）` 操作在2n字节被除数和n字节除数上，产生一个n字节商和n字节余数。被除数总是存在于一对固定寄存器中（32位情况下为%edx和%eax；64位情况下为%rdx和%rax）；除数作为指令中的源操作数来指定。商放在％eax（resp. ％rax）中; 余数放在％edx（resp. ％rdx）中。对于有符号的除法，使用cltd（resp.ctqo）指令来准备％edx(resp.%rdx)，并将其与％eax(resp.%rax)的符号扩展配合使用。例如，如果a、b、c是保存四个字长的内存位置，则可以使用以下序列设置c = a / b：
+
+```txt
+    movq a(%rip), %rax
+    ctqo
+    idivq b(%rip)
+    movq %rax, c(%rip)
+```
+
+上文来自文档）
+
+### 控制指令
+
+到目前为止，我们看到的都是顺序一条接着一条的操作的，但是在我们的c语言里面还有条件语句（if）、循环语句（while）、分支语句（switch）等，很明显都不是顺序的，要进行某种**跳转**，而这种跳转是由机器代码来实现的，根据测试数据值来判断机器此时是否改变控制流。
+
+#### 条件码
+
+好了，到我们心心念的**条件码**了，条件码在CPU中是有单独的**条件码寄存器**，但是它只有单个位，它们描述的是距离最近的算术和逻辑操作的某些属性，CPU根据条件码寄存器来断定是否执行分支跳转。以下是四种条件码：
+
+- **ZF** result was Zero
+- **CF** result caused Carry out of most significant bit (unsigned)
+- **SF** result was negative (Sign bit was set)
+- **OF** result caused (**signed**) Overflow （negative overflow, positive overflow）
+
+> leaq 指令不改变任何的条件码。而不是所有的指令都要改变，如**xor**对于CF、OF会设置为0。
+
+指令集中也有专门来设置条件码的指令，它们不会改变任何的其他寄存器，只会改变条件码：
+
+```txt
+cmp[b|w|l|q]  s2,s1                         # 比较两个值，S1 - S2 用减法的方法来比较
+test[b|w|l|q] s2,s1                         # 测试两个值，S1 & S2 可以来检查是负or正，也可以比较具体位的值
+```
 
 
 
