@@ -2,8 +2,8 @@
 title: "RISC-v前言"
 date: 2022-11-10T19:30:45+08:00
 draft: false
-tags: [RISC-v, CS61c]
-categories: ["Compilation system"]
+tags: [RISC-V, CS61c]
+categories: ["Computer system"]
 author: ["Yeelight"]
 showtoc: true
 ---

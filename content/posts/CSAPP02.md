@@ -3,7 +3,7 @@ title: "二.程序的机器级表示(CSAPP)"
 date: 2023-04-09T20:13:06+08:00
 draft: true
 tags: [CSAPP]
-categories: ["CSAPP"]
+categories: ["CSAPP","Computer system"]
 author: ["Yeelight"]
 showtoc: true
 ---

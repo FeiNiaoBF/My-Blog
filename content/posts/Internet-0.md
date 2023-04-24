@@ -3,7 +3,7 @@ title: "零.计算机网络导读"
 description: "初学计算机网络"
 date: 2023-03-08T21:08:30+08:00
 draft: false
-tags: ["Internet", "ComputerScience"]
+tags: ["Internet"]
 categories: ["Internet"]
 author: ["Yeelight"]
 ---

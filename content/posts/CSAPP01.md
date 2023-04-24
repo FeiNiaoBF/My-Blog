@@ -3,7 +3,7 @@ title: "一.数的表示(CSAPP)"
 date: 2023-03-19T20:13:06+08:00
 draft: false
 tags: [CSAPP]
-categories: ["CSAPP"]
+categories: ["CSAPP","Computer system"]
 author: ["Yeelight"]
 showtoc: true
 ---

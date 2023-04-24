@@ -3,7 +3,7 @@ title: "零.深入理解计算机系统(CSAPP)"
 date: 2023-03-12T21:46:39+08:00
 draft: false
 tags: [CSAPP]
-categories: ["CSAPP"]
+categories: ["CSAPP","Computer system"]
 author: ["Yeelight"]
 showtoc: true
 ---
