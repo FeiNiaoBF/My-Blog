@@ -37,7 +37,7 @@ Intel也逐步发布了`Intel 8008`一个8位的，`Intel 8086` 一个16位的�
 
 在了解具体的体系系统前，我们来了解基本的一些东西：
 
-![CS61cCS](/img/CS61cCS.png)
+![CS61cCS](https://s2.loli.net/2023/04/24/Jp2IxPhfSWjHNZz.png)
 
 上面是来自CS61c的图片，我们现在要了解就是整个软件到硬件的过程，也可以说是抽象到具体的过程。
 
@@ -57,7 +57,7 @@ Intel也逐步发布了`Intel 8008`一个8位的，`Intel 8086` 一个16位的�
 
 编译过程是一个由某个高级语言（比如c文件）经过编译器的一系列的处理成为可读性低的汇编语言。换而言之，就是把我们十分清楚明白的抽象语言转换成机器语言（值得注意的是，此时机器也不知道汇编语言），在经历汇编译器**翻译**成二进制代码，真正的机器语言，机器可以读懂了，但我们看不懂（除了某些黑客）。
 
-![CALL](/img/CALL-CS61c.png)
+![CALL](https://s2.loli.net/2023/04/24/ARQExTsuyrhdgYO.png)
 
 上面是cs61c中的*从C到机器语言*的完整过程，十分的详细了。程序的运行就是想像是一个**翻译**过程，用上一些我们明文规定的语法规则，使用编译器（GCC等）来当我们程序员和机器之间的**翻译官**。
 
@@ -109,9 +109,9 @@ main:
 
 在我们对操作指令分类讨论之前我们来认识处理器是怎么工作的，
 
-![x86-64](/img/x86-64cpu.jpg)
+![x86-64](https://s2.loli.net/2023/04/24/3isvAmjMY8E9IgP.jpg)
 
-![cs61c cpu](/img/Components%20of%20a%20Computer.png)
+![cs61c cpu](https://s2.loli.net/2023/04/24/Fzb3uHQBLTlqOgD.png)
 
 上面的图片(分别来自CSapp和CS61c)十分清楚的展示了处理器对于存放在主存里面的指令有着什么样的操作，主要的就两点**存、读取值**和**计算**。在x86-64里面还有一个叫作**条件码**的东东，我会在下面说到因为我也第一次看见这个。
 
@@ -148,7 +148,7 @@ RISC(*Reduced instruction set computer*)
 
 ## 整型寄存器
 
-![Reg](/img/x86-64reg.png)
+![Reg](https://s2.loli.net/2023/04/24/pYIjkJMEBKc413b.png)
 
 在x86-64上有16个64位的**通用寄存器**；对于每个寄存器的低32、16和8位可以独立地通过其他不同指令名称访问，原则上，几乎任何寄存器都可以用于保存几乎任何逻辑和算术操作的操作数，但有些具有特殊或受限制的用途。
 
@@ -202,7 +202,7 @@ RISC(*Reduced instruction set computer*)
 - **Ri** - 索引寄存器，不能是 %rsp
 - **S** - 系数
 
-![OperandSpecifiers](/img/OperandSpecifiers.png)
+![OperandSpecifiers](https://s2.loli.net/2023/04/24/LPK7kRoNwmFVfi2.png)
 
 ## 指令
 
@@ -341,7 +341,61 @@ cmp[b|w|l|q]  s2,s1                         # 比较两个值，S1 - S2 用减�
 test[b|w|l|q] s2,s1                         # 测试两个值，S1 & S2 可以来检查是负or正，也可以比较具体位的值
 ```
 
+其实cmp和test有时是十分好用的测试指令，比如在对（x == 0）的时候，可以用 `cmpl %eax, %eax` 或者 `testl %eax, %eax` 来与自己比较来设置**ZF**条件码，也用来判断 `%eax` 是正数或负数。
 
+#### 访问条件码
+
+条件码通常是不会直接读取的，在x86中采用三种使用方式：
+
+- 可以根据条件码的某种位逻辑组合，将一个字节设置为0 或1。
+- 可以条件跳转到程序的某个其他的部分。
+- 可以有条件地传送数据。
+
+1. 第一点的实现 **SET指令**
+
+```asm
+sete / setz   D        Set if equal/zero                               ZF
+setne / setnz D        Set if not equal/nonzero                      ~ ZF
+sets          D        Set if negative                                 SF
+setns         D        Set if nonnegative                            ~ SF
+setg / setnle D        Set if greater (signed)                 ~ (SF ^ 0F)& ~ ZF
+setge / setnl D        Set if greater or equal (signed)           ~ (SF ^ 0F)
+setl / setnge D        Set if less (signed)                           SF^0F
+setle / setng D        Set if less or equal                       (SF ^ OF)|ZF
+seta / setnbe D        Set if above (unsigned)                     ~ CF& ~ ZF
+setae / setnb D        Set if above or equal (unsigned)              ~ CF
+setb / setnae D        Set if below (unsigned)                         CF
+setbe / setna D        Set if below or equal (unsigned)               CF|ZF
+```
+
+这里会发现用了位的逻辑计算来确认大于或小于等情况。（需要好好看看第二章）
+
+2. 第二点的实现 **Jump指令**
+
+```asm
+jmp Label             Jump to label                                   true
+jmp *Operand          Jump to specified location                      true
+je / jz Label         Jump if equal/zero                               ZF
+jne / jnz Label       Jump if not equal/nonzero                       ~ ZF
+js Label              Jump if negative                                 SF
+jns Label             Jump if nonnegative                             ~ SF
+jg / jnle Label       Jump if greater (signed)                ~ (SF ^ 0F)& ~ ZF
+jge / jnl Label       Jump if greater or equal (signed)           ~ (SF ^ 0F)
+jl / jnge Label       Jump if less (signed)                           SF^0F
+jle / jng Label       Jump if less or equal                       (SF ^ OF)|ZF
+ja / jnbe Label       Jump if above (unsigned)                    ~ CF& ~ ZF
+jae / jnb Label       Jump if above or equal (unsigned)               ~ CF
+jb / jnae Label       Jump if below (unsigned)                         CF
+jbe / jna Label       Jump if below or equal (unsigned)              CF|ZF
+```
+
+跳转(jump) 指令会导致执行切换到程序中一个全新的位置。在汇编代码中，这些跳转的目的地通常用一个标号(**Label**) 指明。在下一个标题再继续深入jump指令。
+
+3. 第三点的实现 **cmove指令**
+
+（施工中🚧）
+
+### 分支跳转
 
 ## 外部链接
 
