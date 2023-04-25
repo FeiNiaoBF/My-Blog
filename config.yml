@@ -7,10 +7,21 @@ enableRobotsTXT: true
 buildDrafts: false
 buildFuture: false
 buildExpired: false
+enableInlineShortcodes: true #允许内联短码
+enableEmoji: true # 允许使用 Emoji 表情，建议 true
+enableRobotsTXT: true # 允许爬虫抓取到搜索引擎，建议 true
+hasCJKLanguage: true
 
 minify:
   disableXML: true
   minifyOutput: true
+
+permalinks: #浏览器链接显示方式
+  post: "/:title/"
+
+defaultContentLanguage: zh-cn # 最顶部首先展示的语言页面
+defaultContentLanguageInSubdir: true
+
 
 menu:
   main:
@@ -18,10 +29,6 @@ menu:
       name: About👋
       url: /about/
       weight: 10
-    # - identifier: blog
-    #   name: Blog📜
-    #   url: /blog/
-    #   weight: 20
     - identifier: tags
       name: Tags🔖
       url: /tags/
@@ -41,6 +48,7 @@ menu:
 
 # Main interface settings
 params:
+    env: production
     author: "Yeelight"
     keywords: [blog, page]
     defaultTheme: auto # dark, light
@@ -50,6 +58,8 @@ params:
         Content: 私たちの未来はみんなでつくる
 
     socialIcons: # optional
+        - name: email
+          url: "yeelight.work@outlook.com"
         - name: "GitHub"
           url: "https://github.com/FeiNiaoBF"
         - name: "YouTube"
@@ -58,12 +68,22 @@ params:
           url: "https://space.bilibili.com/592367582?spm_id_from=333.1007.0.0"
         - name: "steam"
           url: "https://store.steampowered.com/"
-
-
+        - name: facebook
+          url: "https://www.facebook.com/profile.php?id=100080738746798"
+        - name: QQ
+          url: "img/qq.png"
+        - name: WeChat
+          url: "img/wechat.png"
+        - name: RSS
+          url: "index.xml"
+    # editPost:
+    #   URL: "https://github.com/FeiNiaoBF/FeiNiaoBF.github.io"
+    #   Text: "Suggest Changes" # edit text
+    #   appendFilePath: false # to append file path to Edit link
 
     env: production
     # shared
-    #ShowShareButtons: true
+    ShowShareButtons: true
     # read time settings
     ShowReadingTime: true
     # breadCrumbs: true
@@ -72,6 +92,11 @@ params:
     ShowPostNavLinks: true
     # copy
     ShowCodeCopyButtons: true
+    #
+    ShowAllPagesInArchive: true
+    ShowWordCounts: true
+    VisitCount: true
+    ShowLastMod: true
     # comment
     comments: false
 
@@ -81,43 +106,74 @@ params:
       linkFullImages: true
 
 # Search settings
-    outputs:
-      home:
-        - HTML
-        - RSS
-        - JSON # is necessary
+outputs:
+    home:
+      - HTML
+      - RSS
+      - JSON # is necessary
 
     fuseOpts:
       isCaseSensitive: false
       shouldSort: true
       location: 0
       distance: 1000
-      threshold: 0.4
+      threshold: 1
       minMatchCharLength: 0
       keys: ["title", "permalink", "summary", "content"]
+
+    # twikoo:
+      # version: 1.4.11
 
     assets:
       disableFingerprinting: true
       disableHLJS: false
-    # editPost:
-    #   URL: "https://github.com/FeiNiaoBF/FeiNiaoBF.github.io"
-    #   Text: "Suggest Changes" # edit text
-    #   appendFilePath: false # to append file path to Edit link
+
 
 markup:
   highlight:
-    noClasses: true
-    anchorLineNos: true
-    codeFences: false
+    # anchorLineNos: false # 在行号上配置锚点
+    codeFences: true
     guessSyntax: true
-    #lineNos: true
-    style: catppuccin-frappe # catppuccin-mocha # catppuccin-latte # catppuccin-frappe # dracula
+    # hl_Lines: ""
+    # hl_inline: false
+    # lineAnchors: ""
+    # lineNoStart: 1
+    lineNos: true
+    lineNumbersInTable: true
+    noClasses: true
+    # noHl: false
+    style: catppuccin-mocha
+    # tabWidth: 4
+privacy:
+    vimeo:
+        disabled: false
+        simple: true
 
-  tableOfContents:
+    twitter:
+        disabled: false
+        enableDNT: true
+        simple: true
+
+    instagram:
+        disabled: false
+        simple: true
+
+    youtube:
+        disabled: false
+        privacyEnhanced: true
+
+services:
+    instagram:
+        disableInlineCSS: true
+    twitter:
+        disableInlineCSS: true
+
+
+tableOfContents:
     endLevel: 3
     ordered: true
-    startLevel: 2
+    startLevel: 1
 
 ShowToc: true
 
-TocOpen: true
+TocOpen: false

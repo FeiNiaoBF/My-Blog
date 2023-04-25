@@ -7,6 +7,7 @@ weight: 1
 showtoc: true
 tags: [Blog]
 categories: ["Blog"]
+disableShare: true
 ---
 
 ## Hello
@@ -20,3 +21,9 @@ categories: ["Blog"]
 ## April 20, 2023
 
 我使用了图床，蛮好用的 😁
+
+## April 25, 2023
+
+我更新了一些社交方式
+
+更新一下我的博客的配置

@@ -43,7 +43,7 @@ Intel也逐步发布了`Intel 8008`一个8位的，`Intel 8086` 一个16位的�
 
 **Instructure Set Architecture**：指令集架构 (包括指令规格，不同规则寄存器等)，简称ISA，它是软硬件之间的`桥梁`。
 
-**Processor**、**Memory**、**I/Osystem**：这是由OS进行控制的。
+**Processor**、**Memory**、**I/O system**：这是由OS进行控制的。
 
 我们这章主要的是学习ISA，CSAPP主要是x86-64的CISC指令集，CS61c主要是RISC-V的RISC指令集，没错，它们是不同的指令集，在我的笔记里面我也会不时的写上RISC-V的一些表示来证明我学习过了（笑）。
 
@@ -214,7 +214,7 @@ RISC(*Reduced instruction set computer*)
 
 对于 **mov** 指令来说，需要**源操作数**和**目标操作数**。指令的具体格式可以这样写 `mov? Src, Dest`，第一个是源操作数，第二个是目标操作数
 
-```txt
+```asm
 mov[b|w|l|q] Src, Dest                             # 将src移动到dest
 movs[bw|bl|bq|wl|wq|lq] Src, Dest                  # 带符号扩展的移动
 movz[bw|bl|bq|wl|wq] Src, Dest                     # 带零扩展的移动
@@ -240,7 +240,7 @@ cltq Src, Dest                                     # 把%eax 符号扩展到%rax
 
 这一部分就只有两个主要的指令，但是无比的重要。可以把数据压入程序栈中，以及在栈中弹出，程序栈在过程调用中起至关重要的作用。
 
-```
+```asm
 pushq  Src                    # 将4word的数据压入栈，并把%rsp - 8 -> %rsp
 
 popq  Dest                    # 将4word的数据弹入栈，并把%rsp + 8 -> %rsp
@@ -258,7 +258,7 @@ popq  Dest                    # 将4word的数据弹入栈，并把%rsp + 8 -> %
 
 #### Unary Operation(一元操作)
 
-```
+```asm
 inc Deat         Deat+1->Deat           # 按1递增
 dec Deat         Deat-1->Deat           # 按1递减
 neg Deat         -Deat->Deat    (取反)  # 算术取反
@@ -269,7 +269,7 @@ not Deat         ~Deat-1->Deat （取补） # 按位取反
 
 #### Binary Operation(二元操作)
 
-```txt
+```asm
 leaq S，D      &S -> D        # 将源地址的有效地址加载到目标中
 add S，D      D + S -> D      # 将源加到目标中
 sub S，D      D - S -> D      # 将源从目标中减去
@@ -289,7 +289,7 @@ Load effective address(加载有效地址) , leaq 有两个作用：
 
 #### Shift Operations(移位操作)
 
-```txt
+```asm
 sal[b|w|l|q] imm,d   d = d << imm   # 左移imm位
 sar[b|w|l|q] imm,d   d = d >> imm   # 算术右移imm位
 shr[b|w|l|q] imm,d   d = d >> imm   # 逻辑右移imm位
@@ -297,7 +297,7 @@ shr[b|w|l|q] imm,d   d = d >> imm   # 逻辑右移imm位
 
 #### Special Arithmetic Operations(特殊算术操作)
 
-```
+```asm
 imulq S                  # 有符号全乘法   四字到八字
 mulq S                   # 无符号全乘法   四字到八字
 idivq S                  # 有符号全除法   八字到四字
@@ -310,7 +310,7 @@ cqto                     # sign extend %rax into %rdx::%rax
 
 除法需要特殊的安排：`idiv（有符号）` 和 `div（无符号）` 操作在2n字节被除数和n字节除数上，产生一个n字节商和n字节余数。被除数总是存在于一对固定寄存器中（32位情况下为%edx和%eax；64位情况下为%rdx和%rax）；除数作为指令中的源操作数来指定。商放在％eax（resp. ％rax）中; 余数放在％edx（resp. ％rdx）中。对于有符号的除法，使用cltd（resp.ctqo）指令来准备％edx(resp.%rdx)，并将其与％eax(resp.%rax)的符号扩展配合使用。例如，如果a、b、c是保存四个字长的内存位置，则可以使用以下序列设置c = a / b：
 
-```txt
+```asm
     movq a(%rip), %rax
     ctqo
     idivq b(%rip)
@@ -336,7 +336,7 @@ cqto                     # sign extend %rax into %rdx::%rax
 
 指令集中也有专门来设置条件码的指令，它们不会改变任何的其他寄存器，只会改变条件码：
 
-```txt
+```asm
 cmp[b|w|l|q]  s2,s1                         # 比较两个值，S1 - S2 用减法的方法来比较
 test[b|w|l|q] s2,s1                         # 测试两个值，S1 & S2 可以来检查是负or正，也可以比较具体位的值
 ```
