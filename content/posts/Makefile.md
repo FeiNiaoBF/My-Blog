@@ -1,7 +1,7 @@
 ---
 title: "MakeFile使用笔记"
 date: 2023-04-24T19:08:45+08:00
-draft: true
+draft: false
 taps: ["tools", "MakeFile"]
 categories: ["MakeFile"]
 author: ["Yeelight"]

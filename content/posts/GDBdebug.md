@@ -1,7 +1,7 @@
 ---
 title: "GDB基本使用"
 date: 2023-04-24T19:10:36+08:00
-draft: true
+draft: false
 taps: ["GDB", "tools"]
 categories: [GDB]
 author: ["Yeelight"]
@@ -85,3 +85,5 @@ GDB在显示变量值时都会在对应值之前加上
 # 输入'q'
 (gdb) q
 ```
+
+（施工中🚧）
