@@ -351,6 +351,8 @@ test[b|w|l|q] s2,s1                         # 测试两个值，S1 & S2 可以�
 - 可以条件跳转到程序的某个其他的部分。
 - 可以有条件地传送数据。
 
+> 这里会发现用了位的逻辑计算来确认大于或小于等情况。（需要好好看看第二章）
+
 1. 第一点的实现 **SET指令**
 
 ```asm
@@ -368,7 +370,7 @@ setb / setnae D        Set if below (unsigned)                         CF
 setbe / setna D        Set if below or equal (unsigned)               CF|ZF
 ```
 
-这里会发现用了位的逻辑计算来确认大于或小于等情况。（需要好好看看第二章）
+SET指令，每条指令根据条件码的各种组合将一个字节设置为 **0或1**。
 
 2. 第二点的实现 **Jump指令**
 
@@ -393,9 +395,207 @@ jbe / jna Label       Jump if below or equal (unsigned)              CF|ZF
 
 3. 第三点的实现 **cmove指令**
 
-（施工中🚧）
+```asm
+cmove / cmovz   S, D   Move if equal/zero                               ZF
+cmovne / cmovnz S, D   Move if not equal/nonzero                       ~ ZF
+cmovs           S, D   Move if negative                                 SF
+cmovns          S, D   Move if nonnegative                             ~ SF
+cmovg / cmovnle S, D   Move if greater                (signed)    ~ (SF ^ 0F)& ~ ZF
+cmovge / cmovnl S, D   Move if greater or equal       (signed)      ~ (SF ^ 0F)
+cmovl / cmovnge S, D   Move if less (signed)                           SF^0F
+cmovle / cmovng S, D   Move if less or equal                       (SF ^ OF)|ZF
+cmova / cmovnbe S, D   Move if above (unsigned)                     ~ CF& ~ ZF
+cmovae / cmovnb S, D   Move if above or equal        (unsigned)        ~ CF
+cmovb / cmovnae S, D   Move if below                 (unsigned)         CF
+cmovbe / cmovna S, D   Move if below or equal        (unsigned)        CF|ZF
+```
 
-### 分支跳转
+条件传送指令, 但传送条件满足的时候,指令把`S`复制到`D`中。
+
+#### C语言中的条件分支
+
+现在来进行对C语言中一些常见的分支跳转操作来看看翻译后的机器代码。
+
+##### if-else
+
+C 语言中的江-else 语旬的通用形式模板如下：
+
+```c
+if (test-expr)
+    then-statement
+else
+    els-statement
+```
+
+汇编器工作是为 `then-statement` 和 `else-statement` 产生各自的代码块。它会插入条件和无条件分支，以保证能执行正确的代码块。
+
+看一个例子
+
+```c
+
+long absdiff(long x, long y)
+{
+    long result;
+    if (x < y)
+        result = y-x;
+    else
+        result = x-y;
+    return result;
+}
+```
+
+```c
+long absdiff_es(long x, long y)
+{
+    long result;
+    if (x > y)
+        result = x-y;
+    else
+        result = y-x;
+    return result;
+}
+```
+
+分别产生的汇编代码
+
+```asm
+# x in %rdi, y in %rai
+absdiff :
+    movq %rsi, %rax
+    subq %rdi, %rax          rval = y-x
+    movq %rdi, %rdx
+    subq %rsi, %rdx          eval = x-y
+    cmpq %rsi, %rdi          比较 x:y
+    cmovge %rdx, %rax       If >=, rval = eval
+    ret                      Return tval
+```
+
+```asm
+absdiff_es:
+    cmpq    %rsi, %rdi
+    jle     .L4
+    movq    %rdi, %rax
+    subq    %rsi, %rax
+    ret
+.L4:    # x <= y
+    movq    %rsi, %rax
+    subq    %rdi, %rax
+    ret
+```
+
+> [为什么基于条件数据传送(1)的代码会比基于条件控制转移(2)的代码性能要好？]
+##### while
+
+while 语句的通用形式如下：
+
+```c
+while (test-expr)
+    body-statement
+```
+
+例子
+
+```c
+long fact_while(long n)
+{
+    long result = 1;
+    while (n > 1) {
+        result *= n;
+        n = n-1;
+    }
+    return result;
+}
+```
+
+##### do-while
+
+do-while 语句的通用形式如下：
+
+```c
+do
+    body-statement
+    while (test-expr);
+```
+
+例子
+
+```c
+// Do While 的 C 语言代码
+long pcount_do(unsigned long x)
+{
+    long result = 0;
+    do {
+        result += x & 0x1;
+        x >>= 1;
+    } while (x);
+    return result;
+}
+```
+
+产生的汇编代码
+
+```asm
+    movl    $0, %eax    # result = 0
+.L2:                    # loop:
+    movq    %rdi, %rdx
+    andl    $1, %edx    # t = x & 0x1
+    addq    %rdx, %rax  # result += t
+    shrq    %rdi        # x >>= 1
+    jne     .L2         # if (x) goto loop
+    rep                 # ret
+```
+
+##### for
+
+for 循环的通用形式如下：
+
+```c
+for (init-expr; test-expr; update-expr)
+    body-statement
+```
+
+#### swich
+
+swich 循环的通用形式如下：
+
+```c
+swich(n){
+    case test-expr:
+        body-statement
+        break;
+    case test-expr:
+        body-statement
+        break;
+}
+
+```
+
+对于C语言的这些语法我只是在这里举出例子来，最好看看书上的讲解。
+### 分支跳转(RISC-V)
+
+对于这个分类其实我分给了RISC-V， 主要是在x86-64中的控制指令和RISC-V的分支跳转其实是一回事，主要区别是否使用的条件码（其实在我看来RISC-V也用了条件码，但是是隐式的使用）。
+
+RISC-V的 **Branch Instruction**
+
+```asm
+（施工中🚧）
+```
+
+## 过程调用
+
+过程是软件中一种很重要的抽象。它提供了一种封装代码的方式，用一组指定的参数和一个可选的返回值实现了某种功能。然后，可以在程序中不同的地方调用这个函数。设计良好的软件用过程作为抽象机制，隐藏某个行为的具体实现，同时又提供清晰简洁的接口定义，说明要计算的是哪些值，过程会对程序状态产生什么样的影响。不同编程语言中，过程的形式多样：函数(function) 、方法(method) 、子例(subroutine) 、处理函数(handler) 等等，但是它们有一些共有的特性。
+
+过程调用主要有三个机制：
+
+1. **控制传递**。包括如何开始执行过程代码，以及如何返回到开始的地方。本质上是代码执行地址的改变和切换。
+
+2. **数据传递**。调用函数时要传给函数一些参数，在返回函数时也可能会将一些函数计算结果以返回值形式返回给原函数。本质上是数据传入新过程，又传回原过程。
+
+3. **内存管理**。在过程进行时，如何分配内存空间；在过程返回后，如何销毁内存中存储的局部变量。
+
+![callsk](https://s2.loli.net/2023/05/07/iWSVILyRpxh63Dl.jpg)
+
+## 数据存储分配
 
 ## 外部链接
 
@@ -408,3 +608,11 @@ jbe / jna Label       Jump if below or equal (unsigned)              CF|ZF
 [芯片相关-- Cpu历史--AMD系列](https://zhuanlan.zhihu.com/p/464721330)
 
 [芯片相关-- Cpu历史--intel系列](https://zhuanlan.zhihu.com/p/464413953)
+
+[【读薄 CSAPP】贰 机器指令与程序优化](https://wdxtub.com/csapp/thin-csapp-2/2016/04/16/)
+
+[RISC-V手册](http://riscvbook.com/chinese/RISC-V-Reader-Chinese-v2p1.pdf)
+
+[RISC-V基本指令集概述](https://www.sunnychen.top/archives/riscvbasic)
+
+[过程调用](https://segmentfault.com/a/1190000022161796)
