@@ -8,8 +8,7 @@ author: ["Yeelight"]
 showtoc: true
 ---
 
-# 入门
-
+#入门
 ## 微处理器历史
 
 ### Intel的x86
@@ -17,6 +16,7 @@ showtoc: true
 在这里我想来简单的说道说道微处理器的历史发展，特此说明一下我不是专业的🙄，因此我没有详细的`深入研究`，如果有任何的错误请告诉我，谢谢。
 
 自从1971年的Intel4004既第一款微处理器，也是全球第一款微处理器开始，我们人类社会标志着进入微芯片时代，在这个时代有三个主要的趋势：
+
 - 处理器的位长的倍增
 - 指令集的快速发展
 - 时钟频率的快速增加
@@ -24,6 +24,7 @@ showtoc: true
 Intel也逐步发布了`Intel 8008`一个8位的，`Intel 8086` 一个16位的，至此，Intel的x86`帝国`开始了。在1985年，Intel的32位处理器`IA32`问世，而随着摩尔定律等的种种限制，单核的处理器已经遇到瓶颈了，各大公司继而转向了高频率、低功耗的多核处理器，处理器进入多核/多线程时代（2005）。
 
 在一些无论是竞争关系，还是研究关系，导致目前的市场上出现了两种**指令集计算机**
+
 - CISC(*Complex instruction set computer*)
 - RISC(*Reduced instruction set computer*)
 
@@ -50,7 +51,9 @@ Intel也逐步发布了`Intel 8008`一个8位的，`Intel 8086` 一个16位的�
 ### 什么是编译
 
 ```txt
+
 高级语言 --> 汇编语言 --> 机器语言
+
 ```
 
 在我们的零章的时候我说过一个*.c文件如何变成的一个可执行的程序的一个主要过程，它有一个步骤是**编译**，这是一个我们需要细细品味的步骤。
@@ -59,12 +62,14 @@ Intel也逐步发布了`Intel 8008`一个8位的，`Intel 8086` 一个16位的�
 
 ![CALL](https://s2.loli.net/2023/04/24/ARQExTsuyrhdgYO.png)
 
+
 上面是cs61c中的*从C到机器语言*的完整过程，十分的详细了。程序的运行就是想像是一个**翻译**过程，用上一些我们明文规定的语法规则，使用编译器（GCC等）来当我们程序员和机器之间的**翻译官**。
 
 现在来看一看从 `C语言` 到`机器代码`(一个整型加法计算的汇编代码)
 
 ```c
-  // filename: clcyle_one
+  // filename: clcyle_one
+ 
 #include <stdio.h>
 int main(int argc, char const *argv[])
 {
@@ -96,7 +101,7 @@ main:
 .L3:
     addl    $1, %eax
 .L2:
-    cmpl    $9, %eax
+    cmpl    $9, %eax
     jle .L3
     movl    $0, %eax
     ret
@@ -111,14 +116,24 @@ main:
 
 ![x86-64](https://s2.loli.net/2023/04/24/3isvAmjMY8E9IgP.jpg)
 
+
+
 ![cs61c cpu](https://s2.loli.net/2023/04/24/Fzb3uHQBLTlqOgD.png)
+
+
 
 上面的图片(分别来自CSapp和CS61c)十分清楚的展示了处理器对于存放在主存里面的指令有着什么样的操作，主要的就两点**存、读取值**和**计算**。在x86-64里面还有一个叫作**条件码**的东东，我会在下面说到因为我也第一次看见这个。
 
+
+
 这是一个**CPU到Memory**的一个过程，具体的是一个处理器从内存某个地址取值（有数据和指令）拿到**CPU**里的**寄存器**通过**ALU**计算，再根据**PC**选择下一步。
 
+
+
 - **程序计数器**(PC, Program counter) - 存着下一条指令的地址，在 x86-64 中称为 RIP。
+
 - **寄存器**(Register) - 用来存储数据以便操作。
+
 - **条件代码**(Codition codes) - 通常保存最近的算术或逻辑操作后的信息，用来做条件跳转的条件。
 
 ## 什么是ISA
@@ -131,15 +146,18 @@ main:
 - 算术逻辑操作
 - 控制过程操作
 
+
 在下面我会一一分析。
 
 ## CISC&RISC区别
 
 CISC(*Complex instruction set computer*)
+
 > 兼容性性强，指令繁多，长度可变，由微程序实现。
 > 代表：x86-64
 
 RISC(*Reduced instruction set computer*)
+
 > 指令少，使用频率接近，主要是依靠硬件实现（通用寄存器、硬布线逻辑控制）。
 > 代表：RISC-V
 
@@ -184,10 +202,10 @@ RISC(*Reduced instruction set computer*)
 
 以下的都是在操作数里面主要数值表达的意思：
 
-- **Imm**   refers to a constant value, e.g. 0x8048d8e or 48
-- **r**     refers to a register.  e.g. %rax or %edi
-- **R[r]**  refers to the value stored in register address r.
-- **M[i]**  refers to the value stored at memory address i .
+- **Imm**   refers to a constant value, e.g. 0x8048d8e or 48
+- **r**     refers to a register.  e.g. %rax or %edi
+- **R[r]**  refers to the value stored in register address r.
+- **M[i]**  refers to the value stored at memory address i .
 
 不同的格式表示不同的类型。
 
@@ -215,12 +233,12 @@ RISC(*Reduced instruction set computer*)
 对于 **mov** 指令来说，需要**源操作数**和**目标操作数**。指令的具体格式可以这样写 `mov? Src, Dest`，第一个是源操作数，第二个是目标操作数
 
 ```asm
-mov[b|w|l|q] Src, Dest                             # 将src移动到dest
-movs[bw|bl|bq|wl|wq|lq] Src, Dest                  # 带符号扩展的移动
-movz[bw|bl|bq|wl|wq] Src, Dest                     # 带零扩展的移动
-movabsq imm, r                                     # 移动绝对四字（imm为64位）
+mov[b|w|l|q] Src, Dest                             # 将src移动到dest
+movs[bw|bl|bq|wl|wq|lq] Src, Dest                  # 带符号扩展的移动
+movz[bw|bl|bq|wl|wq] Src, Dest                     # 带零扩展的移动
+movabsq imm, r                                     # 移动绝对四字（imm为64位）
 
-cltq Src, Dest                                     # 把%eax 符号扩展到%rax
+cltq Src, Dest                                     # 把%eax 符号扩展到%rax
 ```
 
 在使用 **mov** 指令的时候需要值得注意的是我们的源值和目的值的选址是有标准的, 源操作数可以是立即数、寄存器值或内存值的任意一种，但目标操作数只能是寄存器值或内存值
@@ -241,9 +259,8 @@ cltq Src, Dest                                     # 把%eax 符号扩展到%rax
 这一部分就只有两个主要的指令，但是无比的重要。可以把数据压入程序栈中，以及在栈中弹出，程序栈在过程调用中起至关重要的作用。
 
 ```asm
-pushq  Src                    # 将4word的数据压入栈，并把%rsp - 8 -> %rsp
-
-popq  Dest                    # 将4word的数据弹入栈，并把%rsp + 8 -> %rsp
+pushq  Src                    # 将4word的数据压入栈，并把%rsp - 8 -> %rsp
+popq  Dest                    # 将4word的数据弹入栈，并把%rsp + 8 -> %rsp
 ```
 
 对于程序栈指令十分重要的一点是我们对内存的变化要注意。在程序员的眼里内存是一个有限的数组，我们在把寄存器里面的数据 `push` 进内存的时候栈指针（%rsp）要向着地址减小的方向移动，这就是 `%rsp - 8` 的原因。
@@ -253,16 +270,17 @@ popq  Dest                    # 将4word的数据弹入栈，并把%rsp + 8 -> %
 ### 算术与逻辑指令
 
 对于算术指令我们想起CPU中最重要的部件 `ALU` 算术逻辑单元，基本上所有的这些指令通过
- `opcode` 来在多路选择上 `指挥` ALU正确的使用算术。
- > 注：下面的所有指令都可以根据数据类型加 suffix (b/w/l/q)
+ `opcode` 来在多路选择上 `指挥` ALU正确的使用算术。
+
+ > 注：下面的所有指令都可以根据数据类型加 suffix (b/w/l/q)
 
 #### Unary Operation(一元操作)
 
 ```asm
-inc Deat         Deat+1->Deat           # 按1递增
-dec Deat         Deat-1->Deat           # 按1递减
-neg Deat         -Deat->Deat    (取反)  # 算术取反
-not Deat         ~Deat-1->Deat （取补） # 按位取反
+inc Deat         Deat+1->Deat           # 按1递增
+dec Deat         Deat-1->Deat           # 按1递减
+neg Deat         -Deat->Deat    (取反)  # 算术取反
+not Deat         ~Deat-1->Deat （取补） # 按位取反
 ```
 
 一元操作只有一个操作数，即做源也是目的。可以是`Reg or Mem` 。
@@ -270,40 +288,40 @@ not Deat         ~Deat-1->Deat （取补） # 按位取反
 #### Binary Operation(二元操作)
 
 ```asm
-leaq S，D      &S -> D        # 将源地址的有效地址加载到目标中
-add S，D      D + S -> D      # 将源加到目标中
-sub S，D      D - S -> D      # 将源从目标中减去
-imul S，D     D * S -> D      # 目标乘以源
-xor S，D      D ^ S -> D      # 按位异或目标和来源
-or S，D       D | S -> D      # 按位或目标和来源
-and S, D      D & S -> D      # 按位与目标和来源
-
+leaq S，D      &S -> D        # 将源地址的有效地址加载到目标中
+add S，D      D + S -> D      # 将源加到目标中
+sub S，D      D - S -> D      # 将源从目标中减去
+imul S，D     D * S -> D      # 目标乘以源
+xor S，D      D ^ S -> D      # 按位异或目标和来源
+or S，D       D | S -> D      # 按位或目标和来源
+and S, D      D & S -> D      # 按位与目标和来源
 ```
 
 对于第二个到最后一个不需要再说了，都是字面意思。主要来说一说 `leaq` 这个指令。
 
 Load effective address(加载有效地址) , leaq 有两个作用：
+
 > - 将其源操作数的有效地址（而不是该地址处的数据）加载到其目标寄存器中
->  在 C语言里面就是 `&S` , 这样的好处是可以给下面的内存产生指针。
+>   在 C语言里面就是 `&S` , 这样的好处是可以给下面的内存产生指针。
 > - 也可用于执行与寻址无关的算术运算。（eg： `leaq (%rdi, %rsi, 4), %rax` 相同与 `x + 4*y ` )
 
 #### Shift Operations(移位操作)
 
 ```asm
-sal[b|w|l|q] imm,d   d = d << imm   # 左移imm位
-sar[b|w|l|q] imm,d   d = d >> imm   # 算术右移imm位
-shr[b|w|l|q] imm,d   d = d >> imm   # 逻辑右移imm位
+sal[b|w|l|q] imm,d   d = d << imm   # 左移imm位
+sar[b|w|l|q] imm,d   d = d >> imm   # 算术右移imm位
+shr[b|w|l|q] imm,d   d = d >> imm   # 逻辑右移imm位
 ```
 
 #### Special Arithmetic Operations(特殊算术操作)
 
 ```asm
-imulq S                  # 有符号全乘法   四字到八字
-mulq S                   # 无符号全乘法   四字到八字
-idivq S                  # 有符号全除法   八字到四字
-divq S                   # 无符号全除法   八字到四字
-cltd                     # sign extend %eax into %edx::%eax
-cqto                     # sign extend %rax into %rdx::%rax
+imulq S                  # 有符号全乘法   四字到八字
+mulq S                   # 无符号全乘法   四字到八字
+idivq S                  # 有符号全除法   八字到四字
+divq S                   # 无符号全除法   八字到四字
+cltd                     # sign extend %eax into %edx::%eax
+cqto                     # sign extend %rax into %rdx::%rax
 ```
 
 在特殊算术里面，这样的设计是为了补码的乘除有扩展。由两个64位的到全128位的乘积和整数除法的截断。
@@ -311,13 +329,14 @@ cqto                     # sign extend %rax into %rdx::%rax
 除法需要特殊的安排：`idiv（有符号）` 和 `div（无符号）` 操作在2n字节被除数和n字节除数上，产生一个n字节商和n字节余数。被除数总是存在于一对固定寄存器中（32位情况下为%edx和%eax；64位情况下为%rdx和%rax）；除数作为指令中的源操作数来指定。商放在％eax（resp. ％rax）中; 余数放在％edx（resp. ％rdx）中。对于有符号的除法，使用cltd（resp.ctqo）指令来准备％edx(resp.%rdx)，并将其与％eax(resp.%rax)的符号扩展配合使用。例如，如果a、b、c是保存四个字长的内存位置，则可以使用以下序列设置c = a / b：
 
 ```asm
-    movq a(%rip), %rax
-    ctqo
-    idivq b(%rip)
-    movq %rax, c(%rip)
+    movq a(%rip), %rax
+    ctqo
+    idivq b(%rip)
+    movq %rax, c(%rip)
 ```
 
 上文来自文档）
+
 
 ### 控制指令
 
@@ -337,8 +356,11 @@ cqto                     # sign extend %rax into %rdx::%rax
 指令集中也有专门来设置条件码的指令，它们不会改变任何的其他寄存器，只会改变条件码：
 
 ```asm
-cmp[b|w|l|q]  s2,s1                         # 比较两个值，S1 - S2 用减法的方法来比较
-test[b|w|l|q] s2,s1                         # 测试两个值，S1 & S2 可以来检查是负or正，也可以比较具体位的值
+
+cmp[b|w|l|q]  s2,s1                         # 比较两个值，S1 - S2 用减法的方法来比较
+
+test[b|w|l|q] s2,s1                         # 测试两个值，S1 & S2 可以来检查是负or正，也可以比较具体位的值
+
 ```
 
 其实cmp和test有时是十分好用的测试指令，比如在对（x == 0）的时候，可以用 `cmpl %eax, %eax` 或者 `testl %eax, %eax` 来与自己比较来设置**ZF**条件码，也用来判断 `%eax` 是正数或负数。
@@ -351,23 +373,24 @@ test[b|w|l|q] s2,s1                         # 测试两个值，S1 & S2 可以�
 - 可以条件跳转到程序的某个其他的部分。
 - 可以有条件地传送数据。
 
+
 > 这里会发现用了位的逻辑计算来确认大于或小于等情况。（需要好好看看第二章）
 
 1. 第一点的实现 **SET指令**
 
 ```asm
-sete / setz   D        Set if equal/zero                               ZF
-setne / setnz D        Set if not equal/nonzero                      ~ ZF
-sets          D        Set if negative                                 SF
-setns         D        Set if nonnegative                            ~ SF
-setg / setnle D        Set if greater (signed)                 ~ (SF ^ 0F)& ~ ZF
-setge / setnl D        Set if greater or equal (signed)           ~ (SF ^ 0F)
-setl / setnge D        Set if less (signed)                           SF^0F
-setle / setng D        Set if less or equal                       (SF ^ OF)|ZF
-seta / setnbe D        Set if above (unsigned)                     ~ CF& ~ ZF
-setae / setnb D        Set if above or equal (unsigned)              ~ CF
-setb / setnae D        Set if below (unsigned)                         CF
-setbe / setna D        Set if below or equal (unsigned)               CF|ZF
+sete / setz   D        Set if equal/zero                               ZF
+setne / setnz D        Set if not equal/nonzero                      ~ ZF
+sets          D        Set if negative                                 SF
+setns         D        Set if nonnegative                            ~ SF
+setg / setnle D        Set if greater (signed)                 ~ (SF ^ 0F)& ~ ZF
+setge / setnl D        Set if greater or equal (signed)           ~ (SF ^ 0F)
+setl / setnge D        Set if less (signed)                           SF^0F
+setle / setng D        Set if less or equal                       (SF ^ OF)|ZF
+seta / setnbe D        Set if above (unsigned)                     ~ CF& ~ ZF
+setae / setnb D        Set if above or equal (unsigned)              ~ CF
+setb / setnae D        Set if below (unsigned)                         CF
+setbe / setna D        Set if below or equal (unsigned)               CF|ZF
 ```
 
 SET指令，每条指令根据条件码的各种组合将一个字节设置为 **0或1**。
@@ -375,20 +398,20 @@ SET指令，每条指令根据条件码的各种组合将一个字节设置为 *
 2. 第二点的实现 **Jump指令**
 
 ```asm
-jmp Label             Jump to label                                   true
-jmp *Operand          Jump to specified location                      true
-je / jz Label         Jump if equal/zero                               ZF
-jne / jnz Label       Jump if not equal/nonzero                       ~ ZF
-js Label              Jump if negative                                 SF
-jns Label             Jump if nonnegative                             ~ SF
-jg / jnle Label       Jump if greater (signed)                ~ (SF ^ 0F)& ~ ZF
-jge / jnl Label       Jump if greater or equal (signed)           ~ (SF ^ 0F)
-jl / jnge Label       Jump if less (signed)                           SF^0F
-jle / jng Label       Jump if less or equal                       (SF ^ OF)|ZF
-ja / jnbe Label       Jump if above (unsigned)                    ~ CF& ~ ZF
-jae / jnb Label       Jump if above or equal (unsigned)               ~ CF
-jb / jnae Label       Jump if below (unsigned)                         CF
-jbe / jna Label       Jump if below or equal (unsigned)              CF|ZF
+jmp Label             Jump to label                                   true
+jmp *Operand          Jump to specified location                      true
+je / jz Label         Jump if equal/zero                               ZF
+jne / jnz Label       Jump if not equal/nonzero                       ~ ZF
+js Label              Jump if negative                                 SF
+jns Label             Jump if nonnegative                             ~ SF
+jg / jnle Label       Jump if greater (signed)                ~ (SF ^ 0F)& ~ ZF
+jge / jnl Label       Jump if greater or equal (signed)           ~ (SF ^ 0F)
+jl / jnge Label       Jump if less (signed)                           SF^0F
+jle / jng Label       Jump if less or equal                       (SF ^ OF)|ZF
+ja / jnbe Label       Jump if above (unsigned)                    ~ CF& ~ ZF
+jae / jnb Label       Jump if above or equal (unsigned)               ~ CF
+jb / jnae Label       Jump if below (unsigned)                         CF
+jbe / jna Label       Jump if below or equal (unsigned)              CF|ZF
 ```
 
 跳转(jump) 指令会导致执行切换到程序中一个全新的位置。在汇编代码中，这些跳转的目的地通常用一个标号(**Label**) 指明。在下一个标题再继续深入jump指令。
@@ -396,18 +419,18 @@ jbe / jna Label       Jump if below or equal (unsigned)              CF|ZF
 3. 第三点的实现 **cmove指令**
 
 ```asm
-cmove / cmovz   S, D   Move if equal/zero                               ZF
-cmovne / cmovnz S, D   Move if not equal/nonzero                       ~ ZF
-cmovs           S, D   Move if negative                                 SF
-cmovns          S, D   Move if nonnegative                             ~ SF
-cmovg / cmovnle S, D   Move if greater                (signed)    ~ (SF ^ 0F)& ~ ZF
-cmovge / cmovnl S, D   Move if greater or equal       (signed)      ~ (SF ^ 0F)
-cmovl / cmovnge S, D   Move if less (signed)                           SF^0F
-cmovle / cmovng S, D   Move if less or equal                       (SF ^ OF)|ZF
-cmova / cmovnbe S, D   Move if above (unsigned)                     ~ CF& ~ ZF
-cmovae / cmovnb S, D   Move if above or equal        (unsigned)        ~ CF
-cmovb / cmovnae S, D   Move if below                 (unsigned)         CF
-cmovbe / cmovna S, D   Move if below or equal        (unsigned)        CF|ZF
+cmove / cmovz   S, D   Move if equal/zero                               ZF
+cmovne / cmovnz S, D   Move if not equal/nonzero                       ~ ZF
+cmovs           S, D   Move if negative                                 SF
+cmovns          S, D   Move if nonnegative                             ~ SF
+cmovg / cmovnle S, D   Move if greater                (signed)    ~ (SF ^ 0F)& ~ ZF
+cmovge / cmovnl S, D   Move if greater or equal       (signed)      ~ (SF ^ 0F)
+cmovl / cmovnge S, D   Move if less (signed)                           SF^0F
+cmovle / cmovng S, D   Move if less or equal                       (SF ^ OF)|ZF
+cmova / cmovnbe S, D   Move if above (unsigned)                     ~ CF& ~ ZF
+cmovae / cmovnb S, D   Move if above or equal        (unsigned)        ~ CF
+cmovb / cmovnae S, D   Move if below                 (unsigned)         CF
+cmovbe / cmovna S, D   Move if below or equal        (unsigned)        CF|ZF
 ```
 
 条件传送指令, 但传送条件满足的时候,指令把`S`复制到`D`中。
@@ -422,9 +445,9 @@ C 语言中的江-else 语旬的通用形式模板如下：
 
 ```c
 if (test-expr)
-    then-statement
+    then-statement
 else
-    els-statement
+    els-statement
 ```
 
 汇编器工作是为 `then-statement` 和 `else-statement` 产生各自的代码块。它会插入条件和无条件分支，以保证能执行正确的代码块。
@@ -435,25 +458,28 @@ else
 
 long absdiff(long x, long y)
 {
-    long result;
-    if (x < y)
-        result = y-x;
-    else
-        result = x-y;
-    return result;
+    long result;
+    if (x < y)
+        result = y-x;
+    else
+        result = x-y;
+    return result;
 }
+
 ```
 
 ```c
+
 long absdiff_es(long x, long y)
 {
-    long result;
-    if (x > y)
-        result = x-y;
-    else
-        result = y-x;
-    return result;
+    long result;
+    if (x > y)
+        result = x-y;
+    else
+        result = y-x;
+    return result;
 }
+
 ```
 
 分别产生的汇编代码
@@ -461,36 +487,39 @@ long absdiff_es(long x, long y)
 ```asm
 # x in %rdi, y in %rai
 absdiff :
-    movq %rsi, %rax
-    subq %rdi, %rax          rval = y-x
-    movq %rdi, %rdx
-    subq %rsi, %rdx          eval = x-y
-    cmpq %rsi, %rdi          比较 x:y
-    cmovge %rdx, %rax       If >=, rval = eval
-    ret                      Return tval
+    movq %rsi, %rax
+    subq %rdi, %rax          rval = y-x
+    movq %rdi, %rdx
+    subq %rsi, %rdx          eval = x-y
+    cmpq %rsi, %rdi          比较 x:y
+    cmovge %rdx, %rax       If >=, rval = eval
+    ret                      Return tval
+
 ```
 
 ```asm
+
 absdiff_es:
-    cmpq    %rsi, %rdi
-    jle     .L4
-    movq    %rdi, %rax
-    subq    %rsi, %rax
-    ret
-.L4:    # x <= y
-    movq    %rsi, %rax
-    subq    %rdi, %rax
-    ret
+    cmpq    %rsi, %rdi
+    jle     .L4
+    movq    %rdi, %rax
+    subq    %rsi, %rax
+    ret
+.L4:    # x <= y
+    movq    %rsi, %rax
+    subq    %rdi, %rax
+    ret
 ```
 
 > [为什么基于条件数据传送(1)的代码会比基于条件控制转移(2)的代码性能要好？]
+
 ##### while
 
 while 语句的通用形式如下：
 
 ```c
 while (test-expr)
-    body-statement
+    body-statement
 ```
 
 例子
@@ -498,12 +527,12 @@ while (test-expr)
 ```c
 long fact_while(long n)
 {
-    long result = 1;
-    while (n > 1) {
-        result *= n;
-        n = n-1;
-    }
-    return result;
+    long result = 1;
+    while (n > 1) {
+        result *= n;
+        n = n-1;
+    }
+    return result;
 }
 ```
 
@@ -513,36 +542,39 @@ do-while 语句的通用形式如下：
 
 ```c
 do
-    body-statement
-    while (test-expr);
+    body-statement
+    while (test-expr);
 ```
 
 例子
 
 ```c
+
 // Do While 的 C 语言代码
 long pcount_do(unsigned long x)
+
 {
-    long result = 0;
-    do {
-        result += x & 0x1;
-        x >>= 1;
-    } while (x);
-    return result;
+    long result = 0;
+    do {
+        result += x & 0x1;
+        x >>= 1;
+    } while (x);
+    return result;
 }
 ```
 
 产生的汇编代码
 
 ```asm
-    movl    $0, %eax    # result = 0
-.L2:                    # loop:
-    movq    %rdi, %rdx
-    andl    $1, %edx    # t = x & 0x1
-    addq    %rdx, %rax  # result += t
-    shrq    %rdi        # x >>= 1
-    jne     .L2         # if (x) goto loop
-    rep                 # ret
+
+    movl    $0, %eax    # result = 0
+.L2:                    # loop:
+    movq    %rdi, %rdx
+    andl    $1, %edx    # t = x & 0x1
+    addq    %rdx, %rax  # result += t
+    shrq    %rdi        # x >>= 1
+    jne     .L2         # if (x) goto loop
+    rep                 # ret
 ```
 
 ##### for
@@ -551,26 +583,27 @@ for 循环的通用形式如下：
 
 ```c
 for (init-expr; test-expr; update-expr)
-    body-statement
+    body-statement
 ```
 
-#### swich
+#### switch
 
-swich 循环的通用形式如下：
+switch 循环的通用形式如下：
 
 ```c
-swich(n){
-    case test-expr:
-        body-statement
-        break;
-    case test-expr:
-        body-statement
-        break;
+switch(n){
+    case test-expr:
+        body-statement
+        break;
+    case test-expr:
+        body-statement
+        break;
 }
 
 ```
 
 对于C语言的这些语法我只是在这里举出例子来，最好看看书上的讲解。
+
 ### 分支跳转(RISC-V)
 
 对于这个分类其实我分给了RISC-V， 主要是在x86-64中的控制指令和RISC-V的分支跳转其实是一回事，主要区别是否使用的条件码（其实在我看来RISC-V也用了条件码，但是是隐式的使用）。
@@ -578,7 +611,9 @@ swich(n){
 RISC-V的 **Branch Instruction**
 
 ```asm
+
 （施工中🚧）
+
 ```
 
 ## 过程调用

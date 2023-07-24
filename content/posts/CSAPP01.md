@@ -149,7 +149,7 @@ x > y           =>    -x < -y
 - |TMin|  = |TMax| + 1
 - UMax = 2 *|TMax| + 1  = 2* |TMin| - 1
 
-![图片](/img/B2Tx.png)
+![B2Tx.png](https://s2.loli.net/2023/04/24/ZcUXbMrG2T4OJhP.png)
 
 ## 整数运算
 
@@ -178,7 +178,7 @@ x > y           =>    -x < -y
 
 在我们的运算中（特别是很大的数）不仅仅只考虑算不算的对，还要考虑有没有溢出，一旦我需要的位变成`w+1`的十分你要十分注意了。
 
-![图片](/img/Two's%20add.png)
+[![Two](https://s2.loli.net/2023/04/21/5iVANckMR9qseoZ.png)
 
 此时我们要用上扩展与截取：
 
@@ -216,7 +216,7 @@ IEEE 浮点标准用V=(-1)[^s] *M* 2[^E]的形式来表示一个数：
 - n 位小数字段frac= fn-1 ... f1,f0 编码尾数M, 但是编码出来的值也依赖于阶码字
 段的值是否等千0 。
 
-![图片](/img/float.png)
+![float.png](https://s2.loli.net/2023/04/24/TYMtb2kBysG6maf.png)
 
 
 在开始时记住一些值的来源：E = exp - Bias；M = 1/0 + f
@@ -243,7 +243,7 @@ IEEE 浮点标准用V=(-1)[^s] *M* 2[^E]的形式来表示一个数：
 |-|---|---|
 |0|10001100|10000001110010000000000|
 
-![图片](/img/Normalized.jpg)
+![Normalized](https://s2.loli.net/2023/04/24/FvmEjJeDSVWkQtH.jpg)
 
 #### 非规格化的值
 
@@ -253,14 +253,14 @@ IEEE 浮点标准用V=(-1)[^s] *M* 2[^E]的形式来表示一个数：
 
 非规格化数的另外一个功能是表示那些非常接近于0.0 的数。它们提供了一种属性，称为逐渐溢出(gradual underflow), 其中，可能的数值分布均匀地接近于0.0 。
 
-![图片](/img/Denormalized.jpg)
+![Denormalized](https://s2.loli.net/2023/04/24/ZmftLThWNq5kD4p.jpg)
 
 #### 无穷大和NaN
 
 最后一类数值是当指阶码全为1 的时候出现的。当小数域全为0时，得到的值表示无穷，当 s=O 时是 +∞ 或者是 s=1 时是 -∞ 。当我们把两个非常大的数相乘，或者除以零时，无穷能够表示溢出的结果。当小数域为非零时，结果值被称为"NaN", 即“不是一个数(**Not a Number**)" 的缩写。一些运算的结果不能是实数或无穷，就会返回这样的NaN值，比如当计算sqrt(-1)或 (∞-∞) 时。在某些应用中，表示未初始化的数据时，它们也很有用处。
 
-![图片](/img/inf.jpg)
-![图片](/img/NaN.jpg)
+![inf](https://s2.loli.net/2023/04/24/iYnoLHDCwqASEyg.jpg)
+![NaN](https://s2.loli.net/2023/04/24/15xlfajNMHpnrwG.jpg)
 
 #### 练习
 

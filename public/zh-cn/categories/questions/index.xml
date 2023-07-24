@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Questions on Yeelight の 小屋</title>
+    <link>https://clever-klepon-d14cb6.netlify.app/zh-cn/categories/questions/</link>
+    <description>Recent content in Questions on Yeelight の 小屋</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 24 Apr 2023 18:59:33 +0800</lastBuildDate><atom:link href="https://clever-klepon-d14cb6.netlify.app/zh-cn/categories/questions/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>问题集锦（计算机）</title>
+      <link>https://clever-klepon-d14cb6.netlify.app/zh-cn/posts/questionscollection/</link>
+      <pubDate>Mon, 24 Apr 2023 18:59:33 +0800</pubDate>
+      
+      <guid>https://clever-klepon-d14cb6.netlify.app/zh-cn/posts/questionscollection/</guid>
+      <description>问题集锦 这是一个我在学习计算机时遇到或我自己提出的问题的集合 计算机基础 对于Java来说，new是一个创建对象的过程，它存放在那个内存位置 计算</description>
+    </item>
+    
+  </channel>
+</rss>
