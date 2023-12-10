@@ -1,4 +1,4 @@
-baseURL: 'https://clever-klepon-d14cb6.netlify.app/'
+baseURL: 'https://yeekox.netlify.app/'
 languageCode: zh-CN
 title: Yeelight の 小屋
 theme: "PaperMod"
@@ -70,12 +70,6 @@ params:
           url: "https://store.steampowered.com/"
         - name: facebook
           url: "https://www.facebook.com/profile.php?id=100080738746798"
-        - name: QQ
-          url: "img/qq.png"
-        - name: WeChat
-          url: "img/wechat.png"
-        - name: RSS
-          url: "index.xml"
     # editPost:
     #   URL: "https://github.com/FeiNiaoBF/FeiNiaoBF.github.io"
     #   Text: "Suggest Changes" # edit text
