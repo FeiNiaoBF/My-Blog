@@ -2,6 +2,8 @@ baseURL: 'https://yeekox.netlify.app/'
 languageCode: zh-CN
 title: Yeelight の 小屋
 theme: "PaperMod"
+description: "私たちの未来はみんなでつくる"
+
 
 enableRobotsTXT: true
 buildDrafts: false
