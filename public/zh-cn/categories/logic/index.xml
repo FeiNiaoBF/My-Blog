@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>logic on Yeelight の 小屋</title>
-    <link>https://clever-klepon-d14cb6.netlify.app/zh-cn/categories/logic/</link>
+    <link>https://yeekox.netlify.app/zh-cn/categories/logic/</link>
     <description>Recent content in logic on Yeelight の 小屋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 10 Nov 2022 21:04:43 +0800</lastBuildDate><atom:link href="https://clever-klepon-d14cb6.netlify.app/zh-cn/categories/logic/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 10 Nov 2022 21:04:43 +0800</lastBuildDate>
+    <atom:link href="https://yeekox.netlify.app/zh-cn/categories/logic/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>奇妙的位运算</title>
-      <link>https://clever-klepon-d14cb6.netlify.app/zh-cn/posts/bitsoperation/</link>
+      <link>https://yeekox.netlify.app/zh-cn/posts/bitsoperation/</link>
       <pubDate>Thu, 10 Nov 2022 21:04:43 +0800</pubDate>
-      
-      <guid>https://clever-klepon-d14cb6.netlify.app/zh-cn/posts/bitsoperation/</guid>
+      <guid>https://yeekox.netlify.app/zh-cn/posts/bitsoperation/</guid>
       <description>位运算笔记</description>
     </item>
-    
   </channel>
 </rss>

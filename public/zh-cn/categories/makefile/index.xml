@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>MakeFile on Yeelight の 小屋</title>
-    <link>https://clever-klepon-d14cb6.netlify.app/zh-cn/categories/makefile/</link>
+    <link>https://yeekox.netlify.app/zh-cn/categories/makefile/</link>
     <description>Recent content in MakeFile on Yeelight の 小屋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 24 Apr 2023 19:08:45 +0800</lastBuildDate><atom:link href="https://clever-klepon-d14cb6.netlify.app/zh-cn/categories/makefile/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 24 Apr 2023 19:08:45 +0800</lastBuildDate>
+    <atom:link href="https://yeekox.netlify.app/zh-cn/categories/makefile/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>MakeFile使用笔记</title>
-      <link>https://clever-klepon-d14cb6.netlify.app/zh-cn/posts/makefile/</link>
+      <link>https://yeekox.netlify.app/zh-cn/posts/makefile/</link>
       <pubDate>Mon, 24 Apr 2023 19:08:45 +0800</pubDate>
-      
-      <guid>https://clever-klepon-d14cb6.netlify.app/zh-cn/posts/makefile/</guid>
+      <guid>https://yeekox.netlify.app/zh-cn/posts/makefile/</guid>
       <description>MakeFile的编译和连接 对于大量的c语言文件一个很好的自动化工具,其实可以用到任何语言 MakeFile的一般使用 使用规则 既然要用Make</description>
     </item>
-    
   </channel>
 </rss>

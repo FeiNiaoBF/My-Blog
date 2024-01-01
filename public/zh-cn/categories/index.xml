@@ -1,92 +1,75 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Yeelight の 小屋</title>
-    <link>https://clever-klepon-d14cb6.netlify.app/zh-cn/categories/</link>
+    <link>https://yeekox.netlify.app/zh-cn/categories/</link>
     <description>Recent content in Categories on Yeelight の 小屋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 24 Apr 2023 19:10:36 +0800</lastBuildDate><atom:link href="https://clever-klepon-d14cb6.netlify.app/zh-cn/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 24 Apr 2023 19:10:36 +0800</lastBuildDate>
+    <atom:link href="https://yeekox.netlify.app/zh-cn/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>GDB</title>
-      <link>https://clever-klepon-d14cb6.netlify.app/zh-cn/categories/gdb/</link>
+      <link>https://yeekox.netlify.app/zh-cn/categories/gdb/</link>
       <pubDate>Mon, 24 Apr 2023 19:10:36 +0800</pubDate>
-      
-      <guid>https://clever-klepon-d14cb6.netlify.app/zh-cn/categories/gdb/</guid>
+      <guid>https://yeekox.netlify.app/zh-cn/categories/gdb/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>MakeFile</title>
-      <link>https://clever-klepon-d14cb6.netlify.app/zh-cn/categories/makefile/</link>
+      <link>https://yeekox.netlify.app/zh-cn/categories/makefile/</link>
       <pubDate>Mon, 24 Apr 2023 19:08:45 +0800</pubDate>
-      
-      <guid>https://clever-klepon-d14cb6.netlify.app/zh-cn/categories/makefile/</guid>
+      <guid>https://yeekox.netlify.app/zh-cn/categories/makefile/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>思想</title>
-      <link>https://clever-klepon-d14cb6.netlify.app/zh-cn/categories/%E6%80%9D%E6%83%B3/</link>
+      <link>https://yeekox.netlify.app/zh-cn/categories/%E6%80%9D%E6%83%B3/</link>
       <pubDate>Mon, 24 Apr 2023 19:04:47 +0800</pubDate>
-      
-      <guid>https://clever-klepon-d14cb6.netlify.app/zh-cn/categories/%E6%80%9D%E6%83%B3/</guid>
+      <guid>https://yeekox.netlify.app/zh-cn/categories/%E6%80%9D%E6%83%B3/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Computer system</title>
-      <link>https://clever-klepon-d14cb6.netlify.app/zh-cn/categories/computer-system/</link>
+      <link>https://yeekox.netlify.app/zh-cn/categories/computer-system/</link>
       <pubDate>Mon, 24 Apr 2023 18:59:33 +0800</pubDate>
-      
-      <guid>https://clever-klepon-d14cb6.netlify.app/zh-cn/categories/computer-system/</guid>
+      <guid>https://yeekox.netlify.app/zh-cn/categories/computer-system/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Questions</title>
-      <link>https://clever-klepon-d14cb6.netlify.app/zh-cn/categories/questions/</link>
+      <link>https://yeekox.netlify.app/zh-cn/categories/questions/</link>
       <pubDate>Mon, 24 Apr 2023 18:59:33 +0800</pubDate>
-      
-      <guid>https://clever-klepon-d14cb6.netlify.app/zh-cn/categories/questions/</guid>
+      <guid>https://yeekox.netlify.app/zh-cn/categories/questions/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>CSAPP</title>
-      <link>https://clever-klepon-d14cb6.netlify.app/zh-cn/categories/csapp/</link>
+      <link>https://yeekox.netlify.app/zh-cn/categories/csapp/</link>
       <pubDate>Sun, 09 Apr 2023 20:13:06 +0800</pubDate>
-      
-      <guid>https://clever-klepon-d14cb6.netlify.app/zh-cn/categories/csapp/</guid>
+      <guid>https://yeekox.netlify.app/zh-cn/categories/csapp/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Internet</title>
-      <link>https://clever-klepon-d14cb6.netlify.app/zh-cn/categories/internet/</link>
+      <link>https://yeekox.netlify.app/zh-cn/categories/internet/</link>
       <pubDate>Wed, 08 Mar 2023 21:08:30 +0800</pubDate>
-      
-      <guid>https://clever-klepon-d14cb6.netlify.app/zh-cn/categories/internet/</guid>
+      <guid>https://yeekox.netlify.app/zh-cn/categories/internet/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Blog</title>
-      <link>https://clever-klepon-d14cb6.netlify.app/zh-cn/categories/blog/</link>
+      <link>https://yeekox.netlify.app/zh-cn/categories/blog/</link>
       <pubDate>Wed, 08 Mar 2023 19:56:58 +0800</pubDate>
-      
-      <guid>https://clever-klepon-d14cb6.netlify.app/zh-cn/categories/blog/</guid>
+      <guid>https://yeekox.netlify.app/zh-cn/categories/blog/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>logic</title>
-      <link>https://clever-klepon-d14cb6.netlify.app/zh-cn/categories/logic/</link>
+      <link>https://yeekox.netlify.app/zh-cn/categories/logic/</link>
       <pubDate>Thu, 10 Nov 2022 21:04:43 +0800</pubDate>
-      
-      <guid>https://clever-klepon-d14cb6.netlify.app/zh-cn/categories/logic/</guid>
+      <guid>https://yeekox.netlify.app/zh-cn/categories/logic/</guid>
       <description></description>
     </item>
-    
   </channel>
 </rss>

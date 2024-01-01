@@ -1,56 +1,41 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>CSAPP on Yeelight の 小屋</title>
-    <link>https://clever-klepon-d14cb6.netlify.app/zh-cn/categories/csapp/</link>
+    <link>https://yeekox.netlify.app/zh-cn/categories/csapp/</link>
     <description>Recent content in CSAPP on Yeelight の 小屋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 09 Apr 2023 20:13:06 +0800</lastBuildDate><atom:link href="https://clever-klepon-d14cb6.netlify.app/zh-cn/categories/csapp/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 09 Apr 2023 20:13:06 +0800</lastBuildDate>
+    <atom:link href="https://yeekox.netlify.app/zh-cn/categories/csapp/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>二.程序的机器级表示(CSAPP)</title>
-      <link>https://clever-klepon-d14cb6.netlify.app/zh-cn/posts/csapp02/</link>
+      <link>https://yeekox.netlify.app/zh-cn/posts/csapp02/</link>
       <pubDate>Sun, 09 Apr 2023 20:13:06 +0800</pubDate>
-      
-      <guid>https://clever-klepon-d14cb6.netlify.app/zh-cn/posts/csapp02/</guid>
-      <description>入门 微处理器历史 Intel的x86 在这里我想来简单的说道说道微处理器的历史发展，特此说明一下我不是专业的🙄，因此我没有详细的深入研究，如果有</description>
+      <guid>https://yeekox.netlify.app/zh-cn/posts/csapp02/</guid>
+      <description>#入门 微处理器历史 Intel的x86 在这里我想来简单的说道说道微处理器的历史发展，特此说明一下我不是专业的🙄，因此我没有详细的深入研究，如果</description>
     </item>
-    
     <item>
       <title>三.处理器设计(CSAPP)</title>
-      <link>https://clever-klepon-d14cb6.netlify.app/zh-cn/posts/csapp03/</link>
+      <link>https://yeekox.netlify.app/zh-cn/posts/csapp03/</link>
       <pubDate>Sun, 09 Apr 2023 20:13:06 +0800</pubDate>
-      
-      <guid>https://clever-klepon-d14cb6.netlify.app/zh-cn/posts/csapp03/</guid>
+      <guid>https://yeekox.netlify.app/zh-cn/posts/csapp03/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>一.数的表示(CSAPP)</title>
-      <link>https://clever-klepon-d14cb6.netlify.app/zh-cn/posts/csapp01/</link>
+      <link>https://yeekox.netlify.app/zh-cn/posts/csapp01/</link>
       <pubDate>Sun, 19 Mar 2023 20:13:06 +0800</pubDate>
-      
-      <guid>https://clever-klepon-d14cb6.netlify.app/zh-cn/posts/csapp01/</guid>
+      <guid>https://yeekox.netlify.app/zh-cn/posts/csapp01/</guid>
       <description>&lt;h1 id=&#34;二进制系统的核心---bit&#34;&gt;二进制系统的核心&amp;mdash;bit&lt;/h1&gt;
 &lt;p&gt;众所周知，在计算机里面的所以数据都是由&lt;strong&gt;bit&lt;/strong&gt;表示的，可能这与我们日常使用的十进制来说是十分不方便的，而要想从现实世界的十进制到二进制的过程需要一点点的改变。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>零.深入理解计算机系统(CSAPP)</title>
-      <link>https://clever-klepon-d14cb6.netlify.app/zh-cn/posts/csapp00/</link>
+      <link>https://yeekox.netlify.app/zh-cn/posts/csapp00/</link>
       <pubDate>Sun, 12 Mar 2023 21:46:39 +0800</pubDate>
-      
-      <guid>https://clever-klepon-d14cb6.netlify.app/zh-cn/posts/csapp00/</guid>
-      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;h3 id=&#34;有志有识有恒则断无不成之事&#34;&gt;有志，有识，有恒，则断无不成之事&lt;/h3&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;我自己在2022年学习过&lt;code&gt;CS61c&lt;/code&gt;，这门课主要是讲解了计算机的体系结构，终于踏入了计算机的门槛。计算机体系结构，这是一个计算机十分难啃的一门知识，内容之多、范围之广，无论里面的&lt;code&gt;数的表示、编译原理、CPU的基本架构、内存、虚拟内存、流水线、线程级并行、I/O、OS、网络等等&lt;/code&gt;，每个方面都可以单独拎出来成为一门课程。而想要精通这些知识需要耗费大量的时间和精力，即使学习十年也不嫌少。哈哈哈。&lt;/p&gt;
-&lt;p&gt;我对计算机的热爱促使我非正式地学习了&lt;code&gt;CS61c&lt;/code&gt;（我也不是伯克利的学子，我就小二本的）过后，我发现，它给我的是课堂上没有的一些思想，比如：为什么？通过已经有的事实发出提问（即存在有缘由，而不是想当然的存在即真理）。&lt;/p&gt;
-&lt;p&gt;在我上大学的时候我就知道一本&lt;code&gt;神书&lt;/code&gt;《深入理解计算机系统》（即：&lt;em&gt;&lt;strong&gt;《Computer Systems: A Programmer’s Perspective》&lt;/strong&gt;&lt;/em&gt;），可是一直没有机会读一读 『也看不懂 :(』  也正是在有CS61c的基础上我想去好好的通读一遍它。&lt;/p&gt;
-&lt;p&gt;这本书好在哪里？它是一本以程序员的视角来看计算机的底层机制，不需要你对物理，电子层面有多么高的水准来看计算机，如果有的话更好的（在这里就不得不吐槽国内的教学了）。它里面的内容也是十分的丰富，结合了计算机组成与体系结构，链接与装载，程序优化，内存存储层次，操作系统，网络等基础知识。&lt;/p&gt;
-&lt;p&gt;好的，说那么多，我也想把我在学习的过程写下来这也不失成为我的一场回忆。&lt;/p&gt;</description>
+      <guid>https://yeekox.netlify.app/zh-cn/posts/csapp00/</guid>
+      <description>前言 有志，有识，有恒，则断无不成之事 我自己在2022年学习过CS61c，这门课主要是讲解了计算机的体系结构，终于踏入了计算机的门槛。计算机体</description>
     </item>
-    
   </channel>
 </rss>
