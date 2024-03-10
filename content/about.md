@@ -1,7 +1,7 @@
 ---
 title: About Me
 layout: "about"
-url: "/about/"
+url: "about"
 summary: about
 disableShare: true # 底部不显示分享栏
 ---

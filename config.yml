@@ -14,6 +14,9 @@ enableEmoji: true # 允许使用 Emoji 表情，建议 true
 enableRobotsTXT: true # 允许爬虫抓取到搜索引擎，建议 true
 hasCJKLanguage: true
 
+paginate: 10
+
+
 minify:
   disableXML: true
   minifyOutput: true
@@ -24,28 +27,27 @@ permalinks: #浏览器链接显示方式
 defaultContentLanguage: zh-cn # 最顶部首先展示的语言页面
 defaultContentLanguageInSubdir: true
 
-
 menu:
   main:
     - identifier: about
       name: About👋
-      url: /about/
+      url: about
       weight: 10
     - identifier: tags
       name: Tags🔖
-      url: /tags/
+      url: tags
       weight: 30
     - identifier: categories
       name: Categories📂
-      url: /categories/
+      url: categories
       weight: 40
     - identifier: archives
       name: Archives📦
-      url: /archives/
+      url: archives
       weight: 50
     - identifier: search
       name: Search🔍
-      url: /search/
+      url: search
       weight: 60
 
 # Main interface settings
