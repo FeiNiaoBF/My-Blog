@@ -16,7 +16,6 @@ hasCJKLanguage: true
 
 paginate: 10
 
-
 minify:
   disableXML: true
   minifyOutput: true
