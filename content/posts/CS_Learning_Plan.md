@@ -17,7 +17,7 @@ weight: 2
 
 ### Go 语言
 
-———> [Go 语言学习]({{< relref "posts/learning/Golang_Learning.md" >}})
+———> [Go 语言学习]({{< relref "posts/Golang_Learning.md" >}})
 
 **项目练习**
 
@@ -25,7 +25,7 @@ weight: 2
 
 **项目练习**
 
-1. [TG_bot]({{< relref "posts/projects_all/TG_bot.md" >}})
+1. [TG_bot]({{< relref "posts/TG_bot.md" >}})
 
 ## 数据结构
 
@@ -33,14 +33,14 @@ weight: 2
 
 ### 基础结构
 
-- **[数组]({{< relref "posts\data_structure\array.md" >}})**：是一种线性表数据结构，用于存储相同类型的数据元素。
+- **[数组]({{< relref "posts\array.md" >}})**：是一种线性表数据结构，用于存储相同类型的数据元素。
 
 
   - [x] *二分搜索*
   - [x] *冒泡排序*
   - [ ] *动态规划*
   - ... ...
-- **[链表]({{< relref "posts\data_structure\linkedlist.md" >}})**：由一系列节点组成的数据结构，每个节点包含数据和指向下一个节点的指针。
+- **[链表]({{< relref "posts\linkedlist.md" >}})**：由一系列节点组成的数据结构，每个节点包含数据和指向下一个节点的指针。
 
   - [ ] *反转链表*
   - [ ] *环形链表*
@@ -107,7 +107,7 @@ weight: 2
 
 ## 操作系统
 
-[操作系统的具体学习目录]({{< relref "posts\OS\os_learning.md">}})
+[操作系统的具体学习目录]({{< relref "posts\os_learning.md">}})
 
 ## 计算机网络
 
@@ -119,9 +119,9 @@ _
 数学
 [Search --- Graph theory]({{< relref "" >}})
 
-[Knowledge --- Boolean logic]({{< relref "posts\AI\cs50_knowledge.md" >}})
+[Knowledge --- Boolean logic]({{< relref "posts\cs50_knowledge.md" >}})
 
-[Uncertainty --- Probability]({{< relref "posts\AI\cs50_uncertainty.mdx" >}})
+[Uncertainty --- Probability]({{< relref "posts\cs50_uncertainty.mdx" >}})
 
 
 目标：应用程序开发**Application Developer**

@@ -12,26 +12,26 @@ weight:
 ## 通过 XV6 了解操作系统
 
 我希望通过 6. S081 的学习来学习操作系统的强大，以下的是我在学习中的笔记：
-[通过 XV6 来学习操作系统(OSTEP)]({{< relref "posts\OS\xv6_learn.md" >}})
+[通过 XV6 来学习操作系统(OSTEP)]({{< relref "posts\xv6_learn.md" >}})
 
-- [XV6 的 gdb调试]({{< relref "posts\OS\xv6_gdb_debug.md" >}})
-- [XV6的源码解析]({{< relref "posts\OS\xv6_src.md" >}})
-- [XV6的内存虚拟化]({{< relref "posts\OS\os_learning.md" >}})
-- [XV6 中的 trap]({{< relref "posts\OS\xv6_trap.md" >}})
-- [XV6 的中断]({{< relref "posts\OS\xv6_interrupt.md" >}})
-- [XV6的锁和并行]({{< relref "posts\OS\xv6_lock.md" >}})
-- [XV6的进程和线程]({{< relref "posts\OS\xv6_process_thread.md" >}})
-- [XV6的文件系统]({{< relref "posts\OS\xv6_file_system.md" >}})
+- [XV6 的 gdb调试]({{< relref "posts\xv6_gdb_debug.md" >}})
+- [XV6的源码解析]({{< relref "posts\xv6_src.md" >}})
+- [XV6的内存虚拟化]({{< relref "posts\os_learning.md" >}})
+- [XV6 中的 trap]({{< relref "posts\xv6_trap.md" >}})
+- [XV6 的中断]({{< relref "posts\xv6_interrupt.md" >}})
+- [XV6的锁和并行]({{< relref "posts\xv6_lock.md" >}})
+- [XV6的进程和线程]({{< relref "posts\xv6_process_thread.md" >}})
+- [XV6的文件系统]({{< relref "posts\xv6_file_system.md" >}})
 
 
 ## 个人 Linux 的学习
-[Linux个人学习记录]({{< relref "posts\OS\os_learning.md" >}})
-[命令行的魅力]({{< relref "posts\OS\os_learning.md" >}})
+[Linux个人学习记录]({{< relref "posts\os_learning.md" >}})
+[命令行的魅力]({{< relref "posts\os_learning.md" >}})
 
 ### 分类
 
-[文件描述符]({{< relref "posts\OS\file_descriptor.md" >}})
-[管道]({{< relref "posts\OS\pipe.md" >}})
+[文件描述符]({{< relref "posts\file_descriptor.md" >}})
+[管道]({{< relref "posts\pipe.md" >}})
 [进程（Process）和 线程（Thread）]()
 
 ### 在 XV 6 中 Syscall 函数
@@ -61,9 +61,9 @@ weight:
 
 ​ 来自表1.2：xv6系统调用（除非另外声明，这些系统调用返回0表示无误，返回-1表示出错）
 
-[fork() 函数]({{< relref "posts\OS\os_learning.md" >}})
-[exec() 函数]({{< relref "posts\OS\os_learning.md" >}})
-[exit() 函数]({{< relref "posts\OS\os_learning.md" >}})
+[fork() 函数]({{< relref "posts\os_learning.md" >}})
+[exec() 函数]({{< relref "posts\os_learning.md" >}})
+[exit() 函数]({{< relref "posts\os_learning.md" >}})
 
 
 ## 课程教材
@@ -75,4 +75,4 @@ book-riscv-rev2
 鸟哥的Linux私房菜 基础学习篇 第四版 (鸟哥)
 
 ## MIT6.S081 的实验记录
-[MIT6.S081 的实验问题]({{< relref "posts\OS\os_learning.md" >}})
+[MIT6.S081 的实验问题]({{< relref "posts\os_learning.md" >}})
