@@ -119,12 +119,13 @@ _
 数学
 [Search --- Graph theory]({{< relref "" >}})
 
-[Knowledge --- Boolean logic]({{< relref "" >}})
+[Knowledge --- Boolean logic]({{< relref "posts\AI\cs50_knowledge.md" >}})
 
-[Uncertainty --- Probability]({{< relref "" >}})
+[Uncertainty --- Probability]({{< relref "posts\AI\cs50_uncertainty.mdx" >}})
 
 
 目标：应用程序开发**Application Developer**
+
 [Full Stack]({{< relref "" >}})
 
 目标：计算机图形学**Computer graphics**
