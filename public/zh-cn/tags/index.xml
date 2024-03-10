@@ -2,52 +2,52 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Yeelight の 小屋</title>
-    <link>https://yeekox.netlify.app/zh-cn/tags/</link>
+    <link>/zh-cn/tags/</link>
     <description>Recent content in Tags on Yeelight の 小屋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <lastBuildDate>Sun, 09 Apr 2023 20:13:06 +0800</lastBuildDate>
-    <atom:link href="https://yeekox.netlify.app/zh-cn/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/zh-cn/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CSAPP</title>
-      <link>https://yeekox.netlify.app/zh-cn/tags/csapp/</link>
+      <link>/zh-cn/tags/csapp/</link>
       <pubDate>Sun, 09 Apr 2023 20:13:06 +0800</pubDate>
-      <guid>https://yeekox.netlify.app/zh-cn/tags/csapp/</guid>
+      <guid>/zh-cn/tags/csapp/</guid>
       <description></description>
     </item>
     <item>
       <title>Internet</title>
-      <link>https://yeekox.netlify.app/zh-cn/tags/internet/</link>
+      <link>/zh-cn/tags/internet/</link>
       <pubDate>Wed, 08 Mar 2023 21:08:30 +0800</pubDate>
-      <guid>https://yeekox.netlify.app/zh-cn/tags/internet/</guid>
+      <guid>/zh-cn/tags/internet/</guid>
       <description></description>
     </item>
     <item>
       <title>Blog</title>
-      <link>https://yeekox.netlify.app/zh-cn/tags/blog/</link>
+      <link>/zh-cn/tags/blog/</link>
       <pubDate>Wed, 08 Mar 2023 19:56:58 +0800</pubDate>
-      <guid>https://yeekox.netlify.app/zh-cn/tags/blog/</guid>
+      <guid>/zh-cn/tags/blog/</guid>
       <description></description>
     </item>
     <item>
       <title>bit</title>
-      <link>https://yeekox.netlify.app/zh-cn/tags/bit/</link>
+      <link>/zh-cn/tags/bit/</link>
       <pubDate>Thu, 10 Nov 2022 21:04:43 +0800</pubDate>
-      <guid>https://yeekox.netlify.app/zh-cn/tags/bit/</guid>
+      <guid>/zh-cn/tags/bit/</guid>
       <description></description>
     </item>
     <item>
       <title>CS61c</title>
-      <link>https://yeekox.netlify.app/zh-cn/tags/cs61c/</link>
+      <link>/zh-cn/tags/cs61c/</link>
       <pubDate>Thu, 10 Nov 2022 19:30:45 +0800</pubDate>
-      <guid>https://yeekox.netlify.app/zh-cn/tags/cs61c/</guid>
+      <guid>/zh-cn/tags/cs61c/</guid>
       <description></description>
     </item>
     <item>
       <title>RISC-V</title>
-      <link>https://yeekox.netlify.app/zh-cn/tags/risc-v/</link>
+      <link>/zh-cn/tags/risc-v/</link>
       <pubDate>Thu, 10 Nov 2022 19:30:45 +0800</pubDate>
-      <guid>https://yeekox.netlify.app/zh-cn/tags/risc-v/</guid>
+      <guid>/zh-cn/tags/risc-v/</guid>
       <description></description>
     </item>
   </channel>

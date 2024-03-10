@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>MakeFile on Yeelight の 小屋</title>
-    <link>https://yeekox.netlify.app/zh-cn/categories/makefile/</link>
+    <link>/zh-cn/categories/makefile/</link>
     <description>Recent content in MakeFile on Yeelight の 小屋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <lastBuildDate>Mon, 24 Apr 2023 19:08:45 +0800</lastBuildDate>
-    <atom:link href="https://yeekox.netlify.app/zh-cn/categories/makefile/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/zh-cn/categories/makefile/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>MakeFile使用笔记</title>
-      <link>https://yeekox.netlify.app/zh-cn/posts/makefile/</link>
+      <link>/zh-cn/posts/makefile/</link>
       <pubDate>Mon, 24 Apr 2023 19:08:45 +0800</pubDate>
-      <guid>https://yeekox.netlify.app/zh-cn/posts/makefile/</guid>
+      <guid>/zh-cn/posts/makefile/</guid>
       <description>MakeFile的编译和连接 对于大量的c语言文件一个很好的自动化工具,其实可以用到任何语言 MakeFile的一般使用 使用规则 既然要用Make</description>
     </item>
   </channel>

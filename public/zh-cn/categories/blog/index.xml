@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blog on Yeelight の 小屋</title>
-    <link>https://yeekox.netlify.app/zh-cn/categories/blog/</link>
+    <link>/zh-cn/categories/blog/</link>
     <description>Recent content in Blog on Yeelight の 小屋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <lastBuildDate>Wed, 08 Mar 2023 19:56:58 +0800</lastBuildDate>
-    <atom:link href="https://yeekox.netlify.app/zh-cn/categories/blog/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/zh-cn/categories/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>博客搭建更新日记✨</title>
-      <link>https://yeekox.netlify.app/zh-cn/posts/update/</link>
+      <link>/zh-cn/posts/update/</link>
       <pubDate>Wed, 08 Mar 2023 19:56:58 +0800</pubDate>
-      <guid>https://yeekox.netlify.app/zh-cn/posts/update/</guid>
+      <guid>/zh-cn/posts/update/</guid>
       <description>Hello 你好，这是，这里面是记录我对自己的博客web更新的日记。 March 10，2023 博客使用hugo了 April 20, 2023 我使用了图床，蛮好用的 😁 April 25, 2023 我更新了一些</description>
     </item>
   </channel>

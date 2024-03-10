@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>RISC-V on Yeelight の 小屋</title>
-    <link>https://yeekox.netlify.app/zh-cn/tags/risc-v/</link>
+    <link>/zh-cn/tags/risc-v/</link>
     <description>Recent content in RISC-V on Yeelight の 小屋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <lastBuildDate>Thu, 10 Nov 2022 19:30:45 +0800</lastBuildDate>
-    <atom:link href="https://yeekox.netlify.app/zh-cn/tags/risc-v/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/zh-cn/tags/risc-v/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>RISC-v前言</title>
-      <link>https://yeekox.netlify.app/zh-cn/posts/risc-v/</link>
+      <link>/zh-cn/posts/risc-v/</link>
       <pubDate>Thu, 10 Nov 2022 19:30:45 +0800</pubDate>
-      <guid>https://yeekox.netlify.app/zh-cn/posts/risc-v/</guid>
+      <guid>/zh-cn/posts/risc-v/</guid>
       <description>前言 在我学习c语言的时候我在想计算机是怎么知道我在写什么的，后面在我学习到了cs61c后我知道了汇编语言和底层语言（计算机语言），而RISC</description>
     </item>
   </channel>

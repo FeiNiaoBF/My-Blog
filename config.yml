@@ -110,21 +110,21 @@ outputs:
       - RSS
       - JSON # is necessary
 
-    fuseOpts:
-      isCaseSensitive: false
-      shouldSort: true
-      location: 0
-      distance: 1000
-      threshold: 1
-      minMatchCharLength: 0
-      keys: ["title", "permalink", "summary", "content"]
+    # fuseopts:
+    #   isCaseSensitive: false
+    #   shouldSort: true
+    #   location: 0
+    #   distance: 1000
+    #   threshold: 1
+    #   minMatchCharLength: 0
+    #   keys: ["title", "permalink", "summary", "content"]
 
     # twikoo:
       # version: 1.4.11
 
-    assets:
-      disableFingerprinting: true
-      disableHLJS: false
+    # assets:
+    #   disableFingerprinting: true
+    #   disableHLJS: false
 
 
 markup:
