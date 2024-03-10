@@ -3,7 +3,7 @@ title: "CS学习计划"
 date: 2024-03-10T15:58:41+08:00
 draft: true
 taps: ['CS', 'plan']
-categories: ['learning' 'OS']
+categories: ['learning', 'OS']
 author: ["Yeelight"]
 showtoc: true
 weight: 2
@@ -118,8 +118,11 @@ _
 目标：人工智能**Artificial intelligence**
 数学
 [Search --- Graph theory]({{< relref "" >}})
+
 [Knowledge --- Boolean logic]({{< relref "" >}})
+
 [Uncertainty --- Probability]({{< relref "" >}})
+
 
 目标：应用程序开发**Application Developer**
 [Full Stack]({{< relref "" >}})
@@ -132,5 +135,7 @@ _
 
 每日任务
 [合并两个有序数组]({{< relref "" >}})
+
 [移除元素]({{< relref "" >}})
+
 [删除有序数组中的重复项]({{< relref "" >}})
