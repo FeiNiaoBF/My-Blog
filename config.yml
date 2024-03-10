@@ -30,23 +30,23 @@ menu:
   main:
     - identifier: about
       name: About👋
-      url: about
+      url: /about
       weight: 10
     - identifier: tags
       name: Tags🔖
-      url: tags
+      url: /tags
       weight: 30
     - identifier: categories
       name: Categories📂
-      url: categories
+      url: /categories
       weight: 40
     - identifier: archives
       name: Archives📦
-      url: archives
+      url: /archives
       weight: 50
     - identifier: search
       name: Search🔍
-      url: search
+      url: /search
       weight: 60
 
 # Main interface settings

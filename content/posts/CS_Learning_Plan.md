@@ -6,7 +6,7 @@ taps: ['CS', 'plan']
 categories: ['learning', 'OS']
 author: ["Yeelight"]
 showtoc: true
-weight: 2
+weight: 4
 ---
 
 ## 计算机语言基础
